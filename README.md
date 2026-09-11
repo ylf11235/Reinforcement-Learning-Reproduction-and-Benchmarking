@@ -121,15 +121,6 @@ Headline findings from the first campaign (PPO on Atari-16, 16/16 completed):
   backend with upstream CartPole semantics; unified configurations, run results,
   completion status, and cross-backend protocol notes.
 
-- **[docs/envs/atari-16.md](docs/envs/atari-16.md)** — the Atari-16 environment suite:
-  why these 16 games (skill coverage + the six MuZero-below-human games [[3]](#references)),
-  the fixed game order, the unified `ALE/<Game>-v5` environment contract, and where
-  reference scores come from.
-- **[docs/reports/ppo-experiments.md](docs/reports/ppo-experiments.md)** — experiment
-  report: PPOSB3 (Stable-Baselines3 PPO, Atari-tuned) and a PPO-PyTorch reference
-  backend with upstream CartPole semantics; unified configurations, run results,
-  completion status, and cross-backend protocol notes.
-
 ## Methodology in Brief
 
 - **Budget accounting:** one policy action decision = 1 step; 10M steps ≈ 40M raw ALE
