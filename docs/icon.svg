@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" role="img" aria-labelledby="title desc">
+  <title id="title">RL-Reproduction-Benchmarking</title>
+  <desc id="desc">A red typographic wordmark with stars replacing both o letters and a reinforcement learning trajectory symbol.</desc>
+  <defs>
+    <linearGradient id="ink" gradientUnits="userSpaceOnUse" x1="80" y1="90" x2="1340" y2="390">
+      <stop offset="0" stop-color="#d4142f"/>
+      <stop offset="0.5" stop-color="#b51f52"/>
+      <stop offset="1" stop-color="#245fc7"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e4ad2f"/>
+      <stop offset="0.5" stop-color="#f8df7a"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#7b0a18" flood-opacity="0.2"/>
+    </filter>
+    <path id="letter-star" d="M0 -39 L9 -12 L37 -12 L15 5 L23 33 L0 16 L-23 33 L-15 5 L-37 -12 L-9 -12 Z"/>
+  </defs>
+
+  <rect width="1600" height="520" fill="#fffdfc"/>
+
+  <g fill="url(#ink)" stroke="#000" stroke-width="2" paint-order="stroke fill" stroke-linejoin="round" filter="url(#soft-shadow)" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700">
+    <text x="80" y="240" font-size="140" letter-spacing="-5">RL-Repr</text>
+    <text x="748" y="240" font-size="140" letter-spacing="-5">ducti</text>
+    <text x="1180" y="240" font-size="140" letter-spacing="-5">n</text>
+    <text x="108" y="390" font-size="136" letter-spacing="-4">-Benchmarking</text>
+    <text x="112" y="475" font-size="34" letter-spacing="4">all on one GPU</text>
+  </g>
+
+  <!-- The two stars replace both 'o' letters in Reproduction. -->
+  <g fill="none" stroke="#000" stroke-width="11" stroke-linejoin="round">
+    <use href="#letter-star" transform="translate(710 200) skewX(-12) scale(0.887)"/>
+    <use href="#letter-star" transform="translate(1141 198) skewX(-12) scale(0.833)"/>
+  </g>
+  <g fill="none" stroke="url(#gold)" stroke-width="7" stroke-linejoin="round">
+    <use href="#letter-star" transform="translate(710 200) skewX(-12) scale(0.887)"/>
+    <use href="#letter-star" transform="translate(1141 198) skewX(-12) scale(0.833)"/>
+  </g>
+
+  <g transform="translate(1250 55) scale(0.8 1)" fill="none" stroke="#ef3340" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M45 350 C82 350 113 350 150 350 C177 350 197 326 220 285 C245 241 274 188 304 118" stroke-width="10"/>
+    <circle cx="45" cy="350" r="12" fill="#fffdfc" stroke-width="8"/>
+    <circle cx="150" cy="350" r="12" fill="#fffdfc" stroke-width="8"/>
+    <circle cx="220" cy="285" r="12" fill="#fffdfc" stroke-width="8"/>
+    <circle cx="304" cy="118" r="16" fill="#fffdfc" stroke-width="8"/>
+    <path d="M20 390 H350" stroke-width="3" opacity="0.8"/>
+    <path d="M72 390 V374 M144 390 V374 M216 390 V374 M288 390 V374" stroke-width="3" opacity="0.8"/>
+  </g>
+</svg>
