@@ -36,6 +36,7 @@ median / mean of per-game HNS, sorted by median.
       <th align="right">Median HNS</th>
       <th align="right">Mean HNS</th>
       <th align="center">Games</th>
+      <th>Remark</th>
     </tr>
   </thead>
   <tbody>
@@ -45,6 +46,7 @@ median / mean of per-game HNS, sorted by median.
       <td align="right"><span style="color:#8a8f98"><i>314.6%</i></span></td>
       <td align="right"><span style="color:#8a8f98"><i>2706.7%</i></span></td>
       <td align="center"><span style="color:#8a8f98"><i>16/16</i></span></td>
+      <td></td>
     </tr>
     <tr>
       <td align="right">2</td>
@@ -52,6 +54,7 @@ median / mean of per-game HNS, sorted by median.
       <td align="right"><span style="color:#8a8f98"><i>9.1%</i></span></td>
       <td align="right"><span style="color:#8a8f98"><i>32.9%</i></span></td>
       <td align="center"><span style="color:#8a8f98"><i>14/16</i></span></td>
+      <td></td>
     </tr>
     <tr>
       <td align="right">3</td>
@@ -59,6 +62,15 @@ median / mean of per-game HNS, sorted by median.
       <td align="right"><b>3.7%</b></td>
       <td align="right"><b>16.6%</b></td>
       <td align="center">16/16</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td align="right">4</td>
+      <td>PPO_PyTorch (this repo)</td>
+      <td align="right">-</td>
+      <td align="right">-</td>
+      <td align="center">2/16</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -77,7 +89,10 @@ Leaderboard notes:
 - **PPO_SB3**: this repository's run — 10M agent steps per game, single seed 0, final
   checkpoint audited over 30 deterministic episodes on fixed seeds (20000–20029),
   unclipped raw returns. Per-game HNS uses the audit mean.
-- The three rows are **cross-protocol reference values**, not a strict same-protocol
+- **PPO_PyTorch**: this repository's reference backend with upstream CartPole semantics
+  [[6]](#references); only alien and frostbite (2/16 games) have completed 10M runs so
+  far, so no aggregate HNS is reported yet.
+- The rows above are **cross-protocol reference values**, not a strict same-protocol
   ranking: they differ in environment stack (2017 ALE vs Gymnasium/ALE-Py), stochasticity,
   action sets, budget accounting, and score definitions. Per-game raw scores, HNS, and
   protocol caveats: [full report](docs/reports/ppo-experiments.md#2-ppo-paper-vs-pposb3-on-atari-10-hns).
@@ -93,17 +108,14 @@ Headline findings from the first campaign (PPO on Atari-16, 16/16 completed):
 
 ## Documentation
 
-```text
-.
-├── docs/
-│   ├── envs/
-│   │   └── atari-16.md          # Benchmark suite: selection logic, game list, env stack, score provenance
-│   ├── reports/
-│   │   └── ppo-experiments.md   # PPO campaign: configurations, results, protocol notes
-│   └── icon.svg
-├── LICENSE                      # Apache-2.0
-└── README.md
-```
+- **[docs/envs/atari-16.md](docs/envs/atari-16.md)** — the Atari-16 environment suite:
+  why these 16 games (skill coverage + the six MuZero-below-human games [[3]](#references)),
+  the fixed game order, the unified `ALE/<Game>-v5` environment contract, and where
+  reference scores come from.
+- **[docs/reports/ppo-experiments.md](docs/reports/ppo-experiments.md)** — experiment
+  report: PPOSB3 (Stable-Baselines3 PPO, Atari-tuned) and a PPO-PyTorch reference
+  backend with upstream CartPole semantics; unified configurations, run results,
+  completion status, and cross-backend protocol notes.
 
 - **[docs/envs/atari-16.md](docs/envs/atari-16.md)** — the Atari-16 environment suite:
   why these 16 games (skill coverage + the six MuZero-below-human games [[3]](#references)),
