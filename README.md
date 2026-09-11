@@ -28,59 +28,17 @@ Human-normalized score (HNS) on the [Atari-16 suite](docs/envs/atari-16.md):
 from the Agent57 reference tables [[2]](#references). Aggregated across games as
 median / mean of per-game HNS, sorted by median.
 
-<table>
-  <thead>
-    <tr>
-      <th align="right">#</th>
-      <th>Method</th>
-      <th align="right">Median HNS</th>
-      <th align="right">Mean HNS</th>
-      <th align="center">Games</th>
-      <th>Remark</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td align="right">1</td>
-      <td><span style="color:#8a8f98"><i>Agent57&nbsp;&#8224;</i></span></td>
-      <td align="right"><span style="color:#8a8f98"><i>314.6%</i></span></td>
-      <td align="right"><span style="color:#8a8f98"><i>2706.7%</i></span></td>
-      <td align="center"><span style="color:#8a8f98"><i>16/16</i></span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td align="right">2</td>
-      <td><span style="color:#8a8f98"><i>PPO&nbsp;(Schulman&nbsp;et&nbsp;al.,&nbsp;2017)&nbsp;&#8224;</i></span></td>
-      <td align="right"><span style="color:#8a8f98"><i>9.1%</i></span></td>
-      <td align="right"><span style="color:#8a8f98"><i>32.9%</i></span></td>
-      <td align="center"><span style="color:#8a8f98"><i>14/16</i></span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td align="right">3</td>
-      <td><b>PPO_SB3</b></td>
-      <td align="right"><b>3.7%</b></td>
-      <td align="right"><b>16.6%</b></td>
-      <td align="center">16/16</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td align="right">4</td>
-      <td>PPO_PyTorch</td>
-      <td align="right">-</td>
-      <td align="right">3.3%<sup>††</sup></td>
-      <td align="center">2/16</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+| # | Method | Reproduced | Median HNS | Mean HNS | Games | Remark |
+| ---: | --- | :---: | ---: | ---: | :---: | --- |
+| 1 | Agent57 † | ✗ | 314.6% | 2706.7% | 16/16 | |
+| 2 | PPO (Schulman et al., 2017) † | ✗ | 9.1% | 32.9% | 14/16 | |
+| 3 | **PPO_SB3** | ✓ | **3.7%** | **16.6%** | 16/16 | |
+| 4 | PPO_PyTorch | ✓ | - | 3.3% | 2/16 | |
 
-**†** *Gray italic* entries are literature reference scores — **no runnable source
-code in this repository**. Black entries were trained, audited, and archived by this
-repository.
-
-**††** Partial aggregate over the completed games only (alien 3.4%, frostbite 3.1%);
-not comparable with full-suite rows.
+**†** Literature reference scores quoted from the cited papers. The **Reproduced**
+column marks whether this repository contains runnable source code and archived
+artifacts for the method: ✓ = trained, audited, and archived here (re-runnable);
+✗ = paper-only reference (no code here, numbers cannot be re-run or audited).
 
 Leaderboard notes:
 
