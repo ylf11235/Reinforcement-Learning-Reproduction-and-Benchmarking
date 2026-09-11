@@ -58,7 +58,7 @@ median / mean of per-game HNS, sorted by median.
     </tr>
     <tr>
       <td align="right">3</td>
-      <td><b>PPO_SB3 (this repo)</b></td>
+      <td><b>PPO_SB3</b></td>
       <td align="right"><b>3.7%</b></td>
       <td align="right"><b>16.6%</b></td>
       <td align="center">16/16</td>
@@ -66,7 +66,7 @@ median / mean of per-game HNS, sorted by median.
     </tr>
     <tr>
       <td align="right">4</td>
-      <td>PPO_PyTorch (this repo)</td>
+      <td>PPO_PyTorch</td>
       <td align="right">-</td>
       <td align="right">3.3%<sup>††</sup></td>
       <td align="center">2/16</td>
