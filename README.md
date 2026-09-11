@@ -68,7 +68,7 @@ median / mean of per-game HNS, sorted by median.
       <td align="right">4</td>
       <td>PPO_PyTorch (this repo)</td>
       <td align="right">-</td>
-      <td align="right">-</td>
+      <td align="right">3.3%<sup>††</sup></td>
       <td align="center">2/16</td>
       <td></td>
     </tr>
@@ -78,6 +78,9 @@ median / mean of per-game HNS, sorted by median.
 **†** *Gray italic* entries are literature reference scores — **no runnable source
 code in this repository**. Black entries were trained, audited, and archived by this
 repository.
+
+**††** Partial aggregate over the completed games only (alien 3.4%, frostbite 3.1%);
+not comparable with full-suite rows.
 
 Leaderboard notes:
 
@@ -91,7 +94,8 @@ Leaderboard notes:
   unclipped raw returns. Per-game HNS uses the audit mean.
 - **PPO_PyTorch**: this repository's reference backend with upstream CartPole semantics
   [[6]](#references); only alien and frostbite (2/16 games) have completed 10M runs so
-  far, so no aggregate HNS is reported yet.
+  far. Mean HNS over these two games: 3.3% (alien 3.4%, frostbite 3.1%) — a partial
+  aggregate, pending the remaining games.
 - The rows above are **cross-protocol reference values**, not a strict same-protocol
   ranking: they differ in environment stack (2017 ALE vs Gymnasium/ALE-Py), stochasticity,
   action sets, budget accounting, and score definitions. Per-game raw scores, HNS, and
