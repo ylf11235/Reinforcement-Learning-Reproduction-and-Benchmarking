@@ -1,0 +1,36 @@
+schema_version: 1
+campaign_id: eadream_atari16_100k_v1
+manifest: eadream/configs/atari16.yaml
+game_directory: eadream/configs/atari16/games
+games:
+- alien
+- asteroids
+- bowling
+- chopper_command
+- enduro
+- frostbite
+- gopher
+- kung_fu_master
+- montezuma_revenge
+- pitfall
+- private_eye
+- seaquest
+- skiing
+- solaris
+- tennis
+- venture
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+campaign:
+  scheduling: serial
+  on_failure: record_and_continue
+  automatic_resume: true
+  skip_completed: true
+  max_retries_per_run: 1
+output:
+  campaign_root: eadream/runs/atari16/eadream_atari16_100k_v1
+  archive_root: eadream/archives/atari16/eadream_atari16_100k_v1

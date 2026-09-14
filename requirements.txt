@@ -1,0 +1,21 @@
+# Core training stack for the PPO backends (Atari-16 / Atari-10 campaigns)
+# and the shared baselines_common package.
+# Exact versions validated on the published runs; see docs/reports/ppo-experiments.md.
+#
+# PyTorch is deliberately NOT listed here: pick a CUDA build that matches
+# YOUR GPU and driver and install it BEFORE this file, via the selector at
+# https://pytorch.org/get-started/locally/ — for example (cu130 wheels, the
+# index used for the published runs):
+#
+#   pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu130
+#
+# A CPU-only torch will let validation pass, but training fails fast by design.
+
+gymnasium==1.2.2
+ale-py==0.12.1
+stable-baselines3==2.8.0
+numpy==1.26.4
+pyyaml==6.0.3
+tensorboard==2.21.0
+imageio==2.37.4
+opencv-python-headless==4.7.0.72

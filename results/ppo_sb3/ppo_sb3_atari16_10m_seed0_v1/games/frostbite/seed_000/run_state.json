@@ -1,0 +1,21 @@
+{
+  "config_hash": "ae5e018eb90bb55d2d1a0322028caeea11336e34dc6b4f714d5c738bca32b56c",
+  "created_at_unix": 1788808774.208336,
+  "result": {
+    "action_count": 18,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\frostbite\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "9ac55552a166a6fd3d1a7862ee75b90b67f4fb92dc9f14de039658283f45355a",
+    "final_raw_return_mean": 2044.3333333333333,
+    "final_raw_return_median": 2140.0,
+    "final_raw_return_std": 515.7756833697723,
+    "training_wall_time_s": 8478.3129196167,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\frostbite\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788817258.1762042
+}

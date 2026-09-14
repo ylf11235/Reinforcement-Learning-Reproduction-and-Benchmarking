@@ -1,0 +1,43 @@
+{
+  "config_hash": "18ab0cbd5b4287d1334de4148bd0766f033f1ced318300dd4c8060d35a22fac9",
+  "created_at_unix": 1788682300.7640903,
+  "imported_from": {
+    "final_checkpoint_sha256": "ddd9b135af2aaa156d4e6dee55bd641e96db9e48d286eed504bbdc9d5a86e77e",
+    "imported_at_unix": 1788775636.9703465,
+    "schema_version": 1,
+    "source_campaign_id": "ppo_sb3_atari57_phase1_medium_10m_v1",
+    "source_campaign_root": "ppo57\\ppo_sb3_atari57_phase1_medium_10m_v1",
+    "source_config_hash": "f40920a20a132702d113d174d2a781302c09792fe58bc150980eb399f57b447c",
+    "source_provenance_sha256": "80458a99cd9a525292b1358b56636727ba69cbb73235724d700f8d862fb7b700",
+    "source_run_dir": "ppo57\\ppo_sb3_atari57_phase1_medium_10m_v1\\games\\alien\\seed_000",
+    "source_run_state_sha256": "78979711a41f5e31f98b10acc7f8f86d5dc0f95d7aa463587e68bd71ef0f01d4",
+    "target_config_hash": "18ab0cbd5b4287d1334de4148bd0766f033f1ced318300dd4c8060d35a22fac9",
+    "verified_semantic_fields": [
+      "game",
+      "budget",
+      "runtime",
+      "environment",
+      "algorithm",
+      "evaluation",
+      "checkpoint",
+      "video"
+    ]
+  },
+  "result": {
+    "action_count": 18,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\alien\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "ddd9b135af2aaa156d4e6dee55bd641e96db9e48d286eed504bbdc9d5a86e77e",
+    "final_raw_return_mean": 1001.3333333333334,
+    "final_raw_return_median": 960.0,
+    "final_raw_return_std": 297.9903055842962,
+    "training_wall_time_s": 8548.130181312561,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\alien\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788690853.8439875
+}

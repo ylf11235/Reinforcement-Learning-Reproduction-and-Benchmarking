@@ -1,0 +1,29 @@
+{
+  "config_hash": "ce6a3d3f789e4ffb99dc7b9560affc91a28bf5baec365615852d22df0173d55a",
+  "created_at_unix": 1788832348.324749,
+  "failure": {
+    "last_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\skiing\\seed_000\\checkpoints\\last\\model.zip",
+    "last_checkpoint_sha256": "805ebd3ecae52be76a75729123726a91cd6c21f9aa70a6ff2301063aa360d9ff",
+    "last_known_timestep": 1024,
+    "message": "[WinError 5] Access denied.: 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\skiing\\\\seed_000\\\\checkpoints\\\\last\\\\.model.31816.tmp.zip' -> 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\skiing\\\\seed_000\\\\checkpoints\\\\last\\\\model.zip'",
+    "traceback": "Traceback (most recent call last):\n  File \"ppo_sb3\\experiment.py\", line 368, in run_game\n    session = trainer(config, lifecycle.run_dir, allow_resume)\n  File \"ppo_sb3\\experiment.py\", line 248, in _default_train\n    model.learn(\n  File \"<site-packages>\\stable_baselines3\\ppo\\ppo.py\", line 311, in learn\n    return super().learn(\n  File \"<site-packages>\\stable_baselines3\\common\\on_policy_algorithm.py\", line 324, in learn\n    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)\n  File \"<site-packages>\\stable_baselines3\\common\\on_policy_algorithm.py\", line 266, in collect_rollouts\n    callback.on_rollout_end()\n  File \"<site-packages>\\stable_baselines3\\common\\callbacks.py\", line 124, in on_rollout_end\n    self._on_rollout_end()\n  File \"ppo_sb3\\callbacks.py\", line 208, in _on_rollout_end\n    self._save_last()\n  File \"ppo_sb3\\callbacks.py\", line 145, in _save_last\n    digest = save_model_atomic(checkpoint_model, self.last_checkpoint)\n  File \"ppo_sb3\\evaluation.py\", line 166, in save_model_atomic\n    os.replace(temporary, destination)\nPermissionError: [WinError 5] Access denied.: 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\skiing\\\\seed_000\\\\checkpoints\\\\last\\\\.model.31816.tmp.zip' -> 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\skiing\\\\seed_000\\\\checkpoints\\\\last\\\\model.zip'\n",
+    "type": "PermissionError"
+  },
+  "result": {
+    "action_count": 3,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\skiing\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "914e5854afc774be1be2ba7d0239b0341a98589903fedd602cdd1fb3f2c3f68f",
+    "final_raw_return_mean": -29971.766666666666,
+    "final_raw_return_median": -29972.5,
+    "final_raw_return_std": 16.78825647753678,
+    "training_wall_time_s": 13200.02519083023,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\skiing\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": true,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788926875.9893558
+}

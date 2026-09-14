@@ -1,0 +1,29 @@
+{
+  "config_hash": "6f43b89f692c10b049be0772e2c3111795617621b0fdcc8c46ab2b89625156d1",
+  "created_at_unix": 1788825629.5946593,
+  "failure": {
+    "last_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\kung_fu_master\\seed_000\\checkpoints\\last\\model.zip",
+    "last_checkpoint_sha256": "95b4031b22a89263e94e41a91e7705991f6b1ba70c1b63a98299bfa03feb7378",
+    "last_known_timestep": 6482944,
+    "message": "[WinError 5] Access denied.: 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\kung_fu_master\\\\seed_000\\\\checkpoints\\\\last\\\\.model.31816.tmp.zip' -> 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\kung_fu_master\\\\seed_000\\\\checkpoints\\\\last\\\\model.zip'",
+    "traceback": "Traceback (most recent call last):\n  File \"ppo_sb3\\experiment.py\", line 368, in run_game\n    session = trainer(config, lifecycle.run_dir, allow_resume)\n  File \"ppo_sb3\\experiment.py\", line 248, in _default_train\n    model.learn(\n  File \"<site-packages>\\stable_baselines3\\ppo\\ppo.py\", line 311, in learn\n    return super().learn(\n  File \"<site-packages>\\stable_baselines3\\common\\on_policy_algorithm.py\", line 324, in learn\n    continue_training = self.collect_rollouts(self.env, callback, self.rollout_buffer, n_rollout_steps=self.n_steps)\n  File \"<site-packages>\\stable_baselines3\\common\\on_policy_algorithm.py\", line 266, in collect_rollouts\n    callback.on_rollout_end()\n  File \"<site-packages>\\stable_baselines3\\common\\callbacks.py\", line 124, in on_rollout_end\n    self._on_rollout_end()\n  File \"ppo_sb3\\callbacks.py\", line 208, in _on_rollout_end\n    self._save_last()\n  File \"ppo_sb3\\callbacks.py\", line 145, in _save_last\n    digest = save_model_atomic(checkpoint_model, self.last_checkpoint)\n  File \"ppo_sb3\\evaluation.py\", line 166, in save_model_atomic\n    os.replace(temporary, destination)\nPermissionError: [WinError 5] Access denied.: 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\kung_fu_master\\\\seed_000\\\\checkpoints\\\\last\\\\.model.31816.tmp.zip' -> 'ppo16\\\\ppo_sb3_atari16_10m_seed0_v1\\\\games\\\\kung_fu_master\\\\seed_000\\\\checkpoints\\\\last\\\\model.zip'\n",
+    "type": "PermissionError"
+  },
+  "result": {
+    "action_count": 14,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\kung_fu_master\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "a078194461b70f543008e40b3e53b48b182e4582b50b6e4244cfa3a216003877",
+    "final_raw_return_mean": 16326.666666666666,
+    "final_raw_return_median": 15800.0,
+    "final_raw_return_std": 3345.338381821619,
+    "training_wall_time_s": 4222.97696185112,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\kung_fu_master\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": true,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788855771.4676173
+}

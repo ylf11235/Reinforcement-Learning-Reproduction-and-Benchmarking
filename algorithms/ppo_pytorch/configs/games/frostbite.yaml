@@ -1,0 +1,9 @@
+schema_version: 1
+experiment: {id: ppo_pytorch_atari10_10m_seed0_v1, algorithm: ppo_pytorch}
+suite: {id: atari10}
+game: {slug: frostbite, display_name: Frostbite, env_id: ALE/Frostbite-v5, seed: 0}
+budget: {unit: transitions, requested: 10000000}
+runtime: {python_executable: null, device: cuda:0, require_device: true}
+environment: {ale_frameskip: 1, repeat_action_probability: 0.0, obs_type: rgb, noop_max: 30, frame_skip: 4, screen_size: 84, grayscale: true, stack: 4, start_protocol: none, max_num_frames_per_episode: 108000}
+algorithm: {max_ep_len: 2000, update_timestep: 1600, K_epochs: 40, eps_clip: 0.2, gamma: 0.99, lr_actor: 0.0003, lr_critic: 0.001, entropy_coef: 0.01, value_coef: 0.5}
+output: {run_root: algorithms/ppo_pytorch/runs/ppo10_v2/frostbite/seed_000, archive_root: algorithms/ppo_pytorch/archives/ppo10_v2/frostbite/seed_000}

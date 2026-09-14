@@ -1,0 +1,41 @@
+schema_version: 1
+suite:
+  id: atari16
+  display_name: Skill-Covering Atari-16
+  game_count: 16
+  definition: Six MuZero below-human games plus ten complementary skill representatives
+  env_namespace: ALE
+  env_version: v5
+games:
+  - slug: alien
+    env_id: ALE/Alien-v5
+  - slug: asteroids
+    env_id: ALE/Asteroids-v5
+  - slug: bowling
+    env_id: ALE/Bowling-v5
+  - slug: chopper_command
+    env_id: ALE/ChopperCommand-v5
+  - slug: enduro
+    env_id: ALE/Enduro-v5
+  - slug: frostbite
+    env_id: ALE/Frostbite-v5
+  - slug: gopher
+    env_id: ALE/Gopher-v5
+  - slug: kung_fu_master
+    env_id: ALE/KungFuMaster-v5
+  - slug: montezuma_revenge
+    env_id: ALE/MontezumaRevenge-v5
+  - slug: pitfall
+    env_id: ALE/Pitfall-v5
+  - slug: private_eye
+    env_id: ALE/PrivateEye-v5
+  - slug: seaquest
+    env_id: ALE/Seaquest-v5
+  - slug: skiing
+    env_id: ALE/Skiing-v5
+  - slug: solaris
+    env_id: ALE/Solaris-v5
+  - slug: tennis
+    env_id: ALE/Tennis-v5
+  - slug: venture
+    env_id: ALE/Venture-v5

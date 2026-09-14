@@ -1,0 +1,20 @@
+{
+  "counters": {
+    "agent_interactions": 100000,
+    "ale_frames": 399659,
+    "evaluation_interactions": 0,
+    "forced_start_frames": 0,
+    "gradient_updates": 97600,
+    "reset_noop_frames": 2846
+  },
+  "created_at_utc": "2026-09-12T07:00:26.563705+00:00",
+  "resolved_config_sha256": "9fc7ffa4568d06823e0991f7f26a186bfd7cc8dea4f85d9c296f3a07d0e8ea12",
+  "result": {
+    "agent_interactions": 100000,
+    "ale_frames": 399659,
+    "checkpoint": "algorithms/eadream/runs/atari16/eadream_atari16_100k_fast_v1/games/frostbite/seed_000/checkpoints/final.pt",
+    "gradient_updates": 97600
+  },
+  "status": "COMPLETED",
+  "updated_at_utc": "2026-09-12T17:46:03.952123+00:00"
+}

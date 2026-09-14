@@ -1,0 +1,20 @@
+{
+  "counters": {
+    "agent_interactions": 100000,
+    "ale_frames": 399740,
+    "evaluation_interactions": 0,
+    "forced_start_frames": 0,
+    "gradient_updates": 97600,
+    "reset_noop_frames": 2208
+  },
+  "created_at_utc": "2026-09-13T03:18:04.442896+00:00",
+  "resolved_config_sha256": "482af06c6e8b82caefd590d9845e7bb0c1740663eb2c8e79cebd978f497741c6",
+  "result": {
+    "agent_interactions": 100000,
+    "ale_frames": 399740,
+    "checkpoint": "algorithms/eadream/runs/atari16/eadream_atari16_100k_fast_v1/games/montezuma_revenge/seed_000/checkpoints/final.pt",
+    "gradient_updates": 97600
+  },
+  "status": "COMPLETED",
+  "updated_at_utc": "2026-09-13T19:26:20.739696+00:00"
+}

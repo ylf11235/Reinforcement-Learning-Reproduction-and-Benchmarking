@@ -1,0 +1,15 @@
+{
+  "reference_commit": "269f71af5b3510fbcdb2c7d3ebeb22b1a15f5241",
+  "files": {
+    "EADream/configsc.yaml": [5225, "85af3c422b22dac91ad15a8bb1c4ae41d78b71f2318805daf0a0aacb33655fa8"],
+    "EADream/dreamer.py": [15533, "1b88e45b6d90be3b9f8bea69e413cdffb3fa1f55f4e38da605721eb602468a07"],
+    "EADream/models.py": [30289, "856f1cf9bd3aa26826af7f2e85ca912e47d311f29b03d8a823a7e804067347fc"],
+    "EADream/networks.py": [53897, "37d5b9a26a1f5f4e23854c8135f86746de2a1d112078a67c8ea9fa86d133a597"],
+    "EADream/tools.py": [38916, "e6f1df2d4cb60944222e8d815203fc72b67196587bf429583f678c16b883bf77"],
+    "EADream/envs/atari.py": [5146, "099a9f1e92f25abb0f3e6ea0465d87ff15927aab064f67e5f2aae8ed05cc121d"],
+    "EADream/envs/wrappers.py": [26599, "9f0751da39ebc582f4bd3a2a2a6ede9ad0353a886691d84a3620888a223ab5f6"],
+    "EADream/eval.py": [14240, "1200118d5fdbb633fbc8ee9973c94e7d6c39ade45a5e88ff320a037ace405f92"],
+    "EADream/requirements.txt": [428, "0e96193ee5d7bc644201d4f8d69eb20c8c98a3b5dd9b3eb2986cf0515cf5fbd3"],
+    "LICENSE": [35148, "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b"]
+  }
+}

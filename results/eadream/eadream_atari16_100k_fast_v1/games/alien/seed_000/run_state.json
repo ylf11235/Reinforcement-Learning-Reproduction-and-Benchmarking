@@ -1,0 +1,20 @@
+{
+  "counters": {
+    "agent_interactions": 100000,
+    "ale_frames": 399782,
+    "evaluation_interactions": 0,
+    "forced_start_frames": 0,
+    "gradient_updates": 97600,
+    "reset_noop_frames": 2063
+  },
+  "created_at_utc": "2026-09-11T08:19:40.737353+00:00",
+  "resolved_config_sha256": "afb83086ea72c22ccfcdb56e1697a5e32389d8cc899a09849f0e47b852b995a1",
+  "result": {
+    "agent_interactions": 100000,
+    "ale_frames": 399782,
+    "checkpoint": "algorithms/eadream/runs/atari16/eadream_atari16_100k_fast_v1/games/alien/seed_000/checkpoints/final.pt",
+    "gradient_updates": 97600
+  },
+  "status": "COMPLETED",
+  "updated_at_utc": "2026-09-11T23:22:36.204338+00:00"
+}

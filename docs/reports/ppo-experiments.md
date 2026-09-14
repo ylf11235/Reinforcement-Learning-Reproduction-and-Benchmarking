@@ -16,13 +16,13 @@ This document summarizes the final state and configuration baselines of both fin
 experiment lines:
 
 - `PPOSB3` Atari-16 × 10M × seed-0 campaign: 16/16 `COMPLETED`, summary artifacts written
-  2026-09-10 05:29, run directory `PPOSB3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/`.
+  2026-09-10 05:29, run directory `algorithms/ppo_sb3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/`.
 - `PPO-PyTorch` (upstream CartPole-style implementation) 10M × seed-0: the completed
   campaign on disk is the v2 rerun (Alien, Frostbite, with TensorBoard logging),
-  `COMPLETED` 2026-09-11 03:54, run directory `PPO-PyTorch/runs/ppo10_v2/`.
+  `COMPLETED` 2026-09-11 03:54, run directory `algorithms/ppo_pytorch/runs/ppo10_v2/`.
 
-This document does not repeat the protocol details of the PPOSB3 protocol document
-(`ppo_sb3_experiments.md`); it only references its conclusions.
+The executable protocols are documented in the backend runbooks under
+`algorithms/ppo_sb3/` and `algorithms/ppo_pytorch/`.
 
 ---
 
@@ -31,7 +31,7 @@ This document does not repeat the protocol details of the PPOSB3 protocol docume
 Shared games = Alien and Frostbite, the two games with a completed `PPO-PyTorch` run.
 PPO-paper values are the mean final scores from Schulman et al., *Proximal Policy
 Optimization Algorithms*, Table 6 ([arXiv:1707.06347](https://arxiv.org/abs/1707.06347);
-per-game transcription also in `PPOSB3/configs/atari16/game_choice.md`). PPOSB3 and
+per-game transcription also in `algorithms/ppo_sb3/configs/atari16/game_choice.md`). PPOSB3 and
 PPO-PyTorch values are both final@10M: 30 audit episodes on seeds 20000–20029,
 deterministic policy, unclipped raw return, seed 0.
 
@@ -53,7 +53,7 @@ comparison, not a strict same-protocol ranking.
 
 ## 2. PPO Paper vs PPOSB3 on Atari-10 (HNS)
 
-Full comparison on the ten Atari-10 games (`PPO-PyTorch/configs/atari10.yaml`), all of
+Full comparison on the ten Atari-10 games (`algorithms/ppo_pytorch/configs/atari10.yaml`), all of
 which are covered by PPO-paper Table 6. Raw scores are converted to human-normalized
 scores (HNS) as `HNS = (Agent − Random) / (Human − Random)`; each raw score is followed
 by its HNS in parentheses. Human and random baselines come from the Agent57 reference
@@ -119,20 +119,20 @@ stack, reference score provenance, and the Atari-10 subset) lives in the standal
 document **[`../envs/atari-16.md`](../envs/atari-16.md)**. Key facts retained here for
 context:
 
-- The suite is a fixed 16-game manifest defined in `PPOSB3/configs/atari16.yaml`,
-  with per-game rationale and score provenance in `PPOSB3/configs/atari16/game_choice.md`.
+- The suite is a fixed 16-game manifest defined in `algorithms/ppo_sb3/configs/atari16.yaml`,
+  with per-game rationale and score provenance in `algorithms/ppo_sb3/configs/atari16/game_choice.md`.
 - It combines ten skill-coverage representatives (chosen to stress PPO) with the six
   mandatory MuZero-below-human games (montezuma_revenge, pitfall, private_eye, skiing,
   solaris, venture) kept as the hard-exploration core.
 - The PPO-PyTorch line uses the Atari-10 subset (the ten skill representatives with
-  denser rewards, dropping the six hard-exploration games, `PPO-PyTorch/configs/atari10.yaml`).
+  denser rewards, dropping the six hard-exploration games, `algorithms/ppo_pytorch/configs/atari10.yaml`).
 
 ---
 
 ## 4. PPOSB3 Unified Configuration (ppo_sb3_atari16_10m_seed0_v1)
 
 All 16 games share one identical configuration; the per-game YAMLs
-(`PPOSB3/configs/atari16/games/<slug>.yaml`) are field-for-field identical except
+(`algorithms/ppo_sb3/configs/atari16/games/<slug>.yaml`) are field-for-field identical except
 slug / env_id / output paths (verified by diff). Key points:
 
 | Category | Unified value |
@@ -152,7 +152,7 @@ slug / env_id / output paths (verified by diff). Key points:
 | Provenance | pip freeze, hardware, ROM SHA256, source snapshot; versions pinned gymnasium 1.2.2 / ale-py 0.12.1 / SB3 2.8.0 / torch 2.11.0+cu130; CUDA mandatory, silent CPU fallback forbidden |
 
 Scoring follows Sections 2 and 6 of the PPOSB3 protocol document
-(`ppo_sb3_experiments.md`): the primary score is the raw-return mean of final@10M over
+([PPO_SB3 runbook](../../algorithms/ppo_sb3/RUNBOOK.md)): the primary score is the raw-return mean of final@10M over
 30 fixed audit seeds; best-checkpoint scores are used only for selection and videos,
 never as a replacement for the primary score.
 
@@ -234,14 +234,14 @@ very poor; private_eye only 100) match the expectation set when the suite was se
 10M-step PPO does not explore effectively on these environments.
 
 Full per-episode scores, checkpoint SHA256s, and video SHA256s are in
-`PPOSB3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/summary/`
+`algorithms/ppo_sb3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/summary/`
 (`scores.csv/json/md`, `throughput.csv`, `campaign_report.json`).
 
 ### 6.2 PPO-PyTorch (Alien, Frostbite — COMPLETED 2026-09-11)
 
 The completed campaign is `ppo_pytorch_atari2_10m_seed0_v2` (a rerun of Alien and
 Frostbite from the atari10 manifest, adding TensorBoard), run directory
-`PPO-PyTorch/runs/ppo10_v2/`.
+`algorithms/ppo_pytorch/runs/ppo10_v2/`.
 
 | Game | transitions | episodes | final raw mean / median / std | wall time (s) | effective FPS |
 | --- | ---: | ---: | --- | ---: | ---: |
@@ -249,7 +249,7 @@ Frostbite from the atari10 manifest, adding TensorBoard), run directory
 | frostbite | 10,000,000 | 20,733 | 199.00 / 230.0 / 68.5 | 23,637 | ~423 |
 
 Final checkpoint SHA256s: alien `ddca74fd…31d24c`, frostbite `d2e9a8d4…22369e` (full
-values in `PPO-PyTorch/runs/ppo10_v2/campaign/campaign_result.json`).
+values in `algorithms/ppo_pytorch/runs/ppo10_v2/campaign/campaign_result.json`).
 
 ---
 
@@ -275,7 +275,8 @@ values in `PPO-PyTorch/runs/ppo10_v2/campaign/campaign_result.json`).
    PPO-PyTorch ≈ 388–423 FPS (40-epoch full-batch updates + single-env collection),
    about 2.7–3.0x slower on the same game.
 5. **PPO-PyTorch has no best-checkpoint mechanism.** Only the final checkpoint (plus a
-   `last.pth` auto-resume checkpoint written after every update, without hash gating);
+   `last.pth` model-only checkpoint written after every update; exact resume is
+   unsupported and incomplete runs are rejected);
    periodic selection, videos, and immutable archiving exist only in PPOSB3.
 6. **Identical training rewards on both sides**: sign-clipped training, raw evaluation;
    PPO-PyTorch additionally logs both episode-return conventions.
@@ -283,12 +284,12 @@ values in `PPO-PyTorch/runs/ppo10_v2/campaign/campaign_result.json`).
    `seed + episode`; PPOSB3's periodic/audit/video seed system is documented in its
    protocol document.
 8. **Result file entry points**:
-   - PPOSB3: `PPOSB3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/summary/`
-   - PPO-PyTorch: `PPO-PyTorch/runs/ppo10_v2/campaign/campaign_result.json` and each
+   - PPOSB3: `algorithms/ppo_sb3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/summary/`
+   - PPO-PyTorch: `algorithms/ppo_pytorch/runs/ppo10_v2/campaign/campaign_result.json` and each
      `games/<slug>/seed_000/` (`result.json`, `train_log.jsonl`, `tensorboard/`,
      `checkpoints/{last,final}.pth`).
 9. **The full 10-game PPO-PyTorch campaign config is ready**
-   (`PPO-PyTorch/configs/atari10_campaign.yaml`, run root
-   `PPO-PyTorch/runs/ppo10/ppo_pytorch_atari10_10m_seed0_v1`) but has not been
+   (`algorithms/ppo_pytorch/configs/atari10_campaign.yaml`, run root
+   `algorithms/ppo_pytorch/runs/ppo10/ppo_pytorch_atari10_10m_seed0_v1`) but has not been
    executed; only the 2-game v2 rerun above exists on disk. If launched later, results
    must be reported under the conventions of this document.

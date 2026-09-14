@@ -1,0 +1,21 @@
+{
+  "config_hash": "7ddfbd3c8de31b4e7e61937d76e3cb88d7ab47c24b6524f2a79292d3e8bbfed8",
+  "created_at_unix": 1788794651.3477702,
+  "result": {
+    "action_count": 9,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\enduro\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "dc0911e7be8ad008bfa565c07fd9de2ba5ac9899a159eb250427cefedde21f9e",
+    "final_raw_return_mean": 958.7333333333333,
+    "final_raw_return_median": 1049.0,
+    "final_raw_return_std": 179.6528009491889,
+    "training_wall_time_s": 14036.422479867935,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\enduro\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788808774.1853347
+}

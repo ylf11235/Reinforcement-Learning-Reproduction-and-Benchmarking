@@ -1,0 +1,43 @@
+{
+  "config_hash": "315e7d9bdb3caa8add8063e5d5a7a9961e621241da8ee6a17600fa1b66cb97a7",
+  "created_at_unix": 1788713213.165242,
+  "imported_from": {
+    "final_checkpoint_sha256": "74d5a6c4bf9a3aad73797ec4d142c314ea6cca9b5d5b468bafd0109657855e98",
+    "imported_at_unix": 1788775637.3708913,
+    "schema_version": 1,
+    "source_campaign_id": "ppo_sb3_atari57_phase1_medium_10m_v1",
+    "source_campaign_root": "ppo57\\ppo_sb3_atari57_phase1_medium_10m_v1",
+    "source_config_hash": "cc4198783358cfbb4b2d9d73c5ffc222c8ad89b0b7e1192da17efe42b6fd7012",
+    "source_provenance_sha256": "88051309515814d8b9addeb8f0a2712943117d6a13e4e2706a7e08938925d1b6",
+    "source_run_dir": "ppo57\\ppo_sb3_atari57_phase1_medium_10m_v1\\games\\asteroids\\seed_000",
+    "source_run_state_sha256": "fe73d8d3320976b3d58f95fcf6048d79755800538beaba51b2c45e6e58d541a9",
+    "target_config_hash": "315e7d9bdb3caa8add8063e5d5a7a9961e621241da8ee6a17600fa1b66cb97a7",
+    "verified_semantic_fields": [
+      "game",
+      "budget",
+      "runtime",
+      "environment",
+      "algorithm",
+      "evaluation",
+      "checkpoint",
+      "video"
+    ]
+  },
+  "result": {
+    "action_count": 14,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\asteroids\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "74d5a6c4bf9a3aad73797ec4d142c314ea6cca9b5d5b468bafd0109657855e98",
+    "final_raw_return_mean": 1377.0,
+    "final_raw_return_median": 1280.0,
+    "final_raw_return_std": 326.49808575242827,
+    "training_wall_time_s": 7123.470729351044,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\asteroids\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788720342.6685815
+}

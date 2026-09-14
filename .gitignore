@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Training outputs (checkpoints, videos, archives) — summary artifacts live in results/
+algorithms/*/runs/
+algorithms/*/archives/
+
+# Bulky run artifacts stay out of git (kept in the source archives, not published)
+results/**/tensorboard/
+results/**/train_log.jsonl
+
+# development docs
+docs/superpowers

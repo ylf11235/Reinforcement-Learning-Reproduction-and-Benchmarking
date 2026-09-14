@@ -1,0 +1,215 @@
+schema_version: 1
+experiment:
+  id: eadream_atari16_100k_v1
+  algorithm: eadream
+  formal: true
+  result_kind: atari16_100k
+suite:
+  id: atari16
+  manifest: eadream/configs/atari16.yaml
+  seeds:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+budget:
+  unit: agent_interactions
+  agent_interactions: 100000
+  ale_frames_nominal: 400000
+runtime:
+  device: cuda:0
+  require_cuda: true
+  precision: float32
+  compile: false
+  num_envs: 1
+  python_version: 3.10.20
+  torch_version: 2.11.0+cu130
+  torch_cuda_version: '13.0'
+  deterministic_algorithms: false
+environment:
+  frameskip: 1
+  action_repeat: 4
+  screen_size: 64
+  grayscale: false
+  frame_stack: 1
+  noop_max_exclusive: 30
+  repeat_action_probability: 0.0
+  terminal_on_life_loss: false
+  minimal_action_set: true
+  max_num_frames_per_episode: 108000
+  max_agent_steps_per_episode: 27000
+  reward_clip: false
+  max_pool_semantics: source_fixed_two_buffer
+  start_protocol: none
+events:
+  history: 500
+  var_threshold: 16.0
+  detect_shadows: true
+  learning_rate: -1.0
+  closing_kernel: 3
+  closing_shape: ellipse
+  event_pred_ratio: 0.05
+model:
+  dyn_stoch: 64
+  dyn_discrete: 32
+  dyn_deter: 512
+  dyn_hidden: 512
+  dyn_rec_depth: 1
+  units: 512
+  activation: SiLU
+  normalization: LayerNorm
+  layer_norm_eps: 0.001
+  unimix_ratio: 0.01
+  initial: learned
+  cnn_depth: 32
+  cnn_kernel: 4
+  cnn_min_resolution: 4
+  encoder_embed_dim: 4096
+  image_input_scale: divide_255
+  encoder_input_offset: -0.5
+  reconstruction_target_range: zero_one
+  encoder_attention: true
+  encoder_attention_kernel: 3
+  encoder_attention_ratio: 2
+  decoder_attention: false
+  event_decoder_attention: false
+  predict_from_prior: true
+  first_frame_prediction: false
+  previous_current_event_input: false
+  mae_ratio: 1.0
+  multihead_rssm_input: false
+  dense_event_filter: true
+  harmony: true
+  kl_free: 1.0
+  dyn_scale: 0.5
+  rep_scale: 0.1
+  event_loss_scale: 0.5
+  event_focal_alpha: 0.15
+  event_focal_gamma: 4.0
+  image_attention_weight: 0.5
+  head_layers: 2
+  actor_distribution: onehot
+  scalar_distribution: symlog_disc
+  scalar_buckets: 255
+  scalar_low: -20.0
+  scalar_high: 20.0
+  decoder_output_offset: 0.5
+  event_output_sigmoid: true
+  reward_outscale: 0.0
+  continuation_outscale: 1.0
+  actor_outscale: 1.0
+  value_outscale: 0.0
+training:
+  prefill: 2500
+  pretrain_batches: 100
+  batch_size: 16
+  batch_length: 64
+  train_ratio: 1024
+  imag_horizon: 15
+  discount: 0.997
+  lambda: 0.95
+  dataset_size: 1000000
+  sequence_sampler_seed: 0
+  reward_ema: true
+  reward_ema_alpha: 0.01
+  imag_gradient: reinforce
+  imag_gradient_mix: 0.0
+  exploration_behavior: greedy
+  exploration_until: 0
+  detect_anomaly_world_model: true
+  actor_entropy: 0.0003
+  slow_value_update: 1
+  slow_value_fraction: 0.02
+  optimizer: adamw
+  optimizer_effective_eps: 1.0e-08
+  optimizer_effective_betas:
+  - 0.9
+  - 0.999
+  optimizer_effective_weight_decay: 0.01
+  model_lr: 0.0001
+  model_grad_clip: 1000.0
+  actor_lr: 3.0e-05
+  actor_grad_clip: 100.0
+  value_lr: 3.0e-05
+  value_grad_clip: 100.0
+evaluation:
+  deterministic: true
+  formal_episodes: 100
+  formal_seed_source: train_seed_fresh_env
+  eval_state_mean: false
+  rssm_sampling: true
+  evaluator_rng: source_seed_before_model_construction
+  audit_seeds:
+  - 20000
+  - 20001
+  - 20002
+  - 20003
+  - 20004
+  - 20005
+  - 20006
+  - 20007
+  - 20008
+  - 20009
+  - 20010
+  - 20011
+  - 20012
+  - 20013
+  - 20014
+  - 20015
+  - 20016
+  - 20017
+  - 20018
+  - 20019
+  - 20020
+  - 20021
+  - 20022
+  - 20023
+  - 20024
+  - 20025
+  - 20026
+  - 20027
+  - 20028
+  - 20029
+  no_fire_diagnostic_games:
+  - bowling
+  - tennis
+  no_fire_diagnostic_steps: 200
+  periodic_anchor_agent_interactions: 2500
+  periodic_every_agent_interactions: 7500
+  periodic_nominal_ale_frames: 30000
+checkpoint:
+  save_every_agent_interactions: 7500
+  first_periodic_agent_interactions: 10000
+  keep_periodic: 2
+  validate_after_write: true
+  immutable_milestones:
+  - 100000
+video:
+  enabled: true
+  checkpoint: best
+  world_model_prediction: true
+  episode_seeds:
+  - 30000
+  - 30001
+  - 30002
+  source: native_ale_rgb
+output:
+  campaign_root: eadream/runs/atari16/eadream_atari16_100k_v1
+  archive_root: eadream/archives/atari16/eadream_atari16_100k_v1
+  archive_scope: result
+campaign:
+  scheduling: serial
+  on_failure: record_and_continue
+  automatic_resume: true
+  skip_completed: true
+  max_retries_per_run: 1
+provenance:
+  reference_commit: 269f71af5b3510fbcdb2c7d3ebeb22b1a15f5241
+  reference_manifest: eadream/reference_manifest.json
+  declared_actor_value_eps: 1.0e-05
+  declared_extra_weight_decay: 0.0
+game:
+  slug: pitfall
+  env_id: ALE/Pitfall-v5
+  rom_sha256: c56c99d9e00136a015a485851e0e925c6327ea2b20aa7d3daecfbd7f9afcfdf0

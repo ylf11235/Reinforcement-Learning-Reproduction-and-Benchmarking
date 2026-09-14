@@ -1,0 +1,130 @@
+schema_version: 1
+experiment:
+  id: ppo_sb3_atari16_10m_seed0_v1
+  stage: official_single_game
+  algorithm: ppo_sb3
+suite:
+  id: atari16
+  manifest: algorithms/ppo_sb3/configs/atari16.yaml
+  expected_game_count: 16
+game:
+  slug: bowling
+  display_name: Bowling
+  env_id: ALE/Bowling-v5
+  seed: 0
+budget:
+  unit: sb3_timesteps
+  requested: 10000000
+  effective: 10000384
+  allow_rollout_overshoot: true
+runtime:
+  python_executable: null  # resolved from sys.executable
+  device: cuda:0
+  require_device: true
+  vector_env: DummyVecEnv
+  num_envs: 8
+  torch_deterministic: true
+  cudnn_benchmark: false
+  max_concurrent_games: 1
+environment:
+  ale_frameskip: 1
+  repeat_action_probability: 0.0
+  obs_type: rgb
+  noop_max: 30
+  frame_skip: 4
+  screen_size: 84
+  grayscale: true
+  stack: 4
+  channel_first: true
+  terminal_on_life_loss: false
+  train_clip_reward: true
+  eval_clip_reward: false
+algorithm:
+  policy: CnnPolicy
+  learning_rate: 0.00025
+  learning_rate_schedule: constant
+  n_steps: 128
+  batch_size: 256
+  n_epochs: 4
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.2
+  clip_range_vf: null
+  normalize_advantage: true
+  ent_coef: 0.01
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  use_sde: false
+  sde_sample_freq: -1
+  target_kl: null
+  stats_window_size: 100
+  policy_kwargs:
+    normalize_images: true
+    ortho_init: true
+evaluation:
+  periodic_every_timesteps: 262144
+  periodic_episodes: 10
+  periodic_seeds:
+  - 10000
+  - 10001
+  - 10002
+  - 10003
+  - 10004
+  - 10005
+  - 10006
+  - 10007
+  - 10008
+  - 10009
+  audit_episodes: 30
+  audit_seed_start: 20000
+  deterministic: true
+  raw_reward_primary: true
+checkpoint:
+  save_every_timesteps: 262144
+  save_last_each_rollout: true
+  keep_periodic: 3
+  keep_milestones: true
+  milestone_every_timesteps: 1048576
+  best_metric: eval/raw_return_mean
+  best_tiebreak:
+  - raw_return_median_desc
+  - raw_return_std_asc
+  - step_asc
+  atomic_write: true
+video:
+  enabled: true
+  checkpoint: best
+  seeds:
+  - 30000
+  - 30001
+  - 30002
+  deterministic: true
+  render_source: ale_rgb
+  fps: 15
+  container: mp4
+  codec: h264
+  pixel_format: yuv420p
+  record_all_fixed_seed_episodes: true
+  write_sha256: true
+output:
+  run_root: algorithms/ppo_sb3/runs/ppo16/ppo_sb3_atari16_10m_seed0_v1/games/bowling/seed_000
+  archive_root: algorithms/ppo_sb3/archives/ppo16/ppo_sb3_atari16_10m_seed0_v1/games/bowling/seed_000
+  existing_run: resume_if_compatible
+campaign:
+  scheduling: sequential
+  continue_after_failure: true
+  max_retries: 2
+  skip_completed: true
+provenance:
+  capture_pip_freeze: true
+  capture_hardware: true
+  hash_roms: true
+  hash_source: true
+  snapshot_source:
+  - algorithms/ppo_sb3
+  - baselines_common
+  required_versions:
+    gymnasium: 1.2.2
+    ale_py: 0.12.1
+    stable_baselines3: 2.8.0
+    torch: 2.11.0+cu130

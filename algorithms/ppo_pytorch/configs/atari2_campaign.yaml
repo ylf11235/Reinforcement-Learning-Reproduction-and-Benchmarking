@@ -1,0 +1,19 @@
+schema_version: 1
+experiment:
+  id: ppo_pytorch_atari2_10m_seed0_v2
+  stage: rerun_with_tensorboard_logging
+  algorithm: ppo_pytorch
+suite:
+  id: atari2
+  source_manifest: algorithms/ppo_pytorch/configs/atari10.yaml
+  expected_game_count: 2
+campaign:
+  id: ppo_pytorch_atari2_10m_seed0_v2
+  run_root: algorithms/ppo_pytorch/runs/ppo10_v2
+  scheduling: sequential
+  on_failure: record_and_continue
+  skip_completed: true
+  expected_game_count: 2
+games:
+  - {slug: alien, env_id: ALE/Alien-v5}
+  - {slug: frostbite, env_id: ALE/Frostbite-v5}

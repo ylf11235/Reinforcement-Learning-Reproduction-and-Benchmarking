@@ -1,0 +1,26 @@
+schema_version: 1
+experiment:
+  id: ppo_pytorch_atari10_10m_seed0_v1
+  stage: official_skill_representatives
+  algorithm: ppo_pytorch
+suite:
+  id: atari10
+  source_manifest: algorithms/ppo_pytorch/configs/atari10.yaml
+  expected_game_count: 10
+campaign:
+  id: ppo_pytorch_atari10_10m_seed0_v1
+  run_root: algorithms/ppo_pytorch/runs/ppo10/ppo_pytorch_atari10_10m_seed0_v1
+  scheduling: sequential
+  on_failure: record_and_continue
+  skip_completed: true
+games:
+  - {slug: alien, env_id: ALE/Alien-v5}
+  - {slug: asteroids, env_id: ALE/Asteroids-v5}
+  - {slug: bowling, env_id: ALE/Bowling-v5}
+  - {slug: chopper_command, env_id: ALE/ChopperCommand-v5}
+  - {slug: enduro, env_id: ALE/Enduro-v5}
+  - {slug: frostbite, env_id: ALE/Frostbite-v5}
+  - {slug: gopher, env_id: ALE/Gopher-v5}
+  - {slug: kung_fu_master, env_id: ALE/KungFuMaster-v5}
+  - {slug: seaquest, env_id: ALE/Seaquest-v5}
+  - {slug: tennis, env_id: ALE/Tennis-v5}

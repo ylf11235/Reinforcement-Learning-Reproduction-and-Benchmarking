@@ -1,0 +1,5 @@
+{"at_utc": "2026-09-12T07:00:26.563705+00:00", "from": null, "reason": "created", "resolved_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce", "to": "PENDING"}
+{"at_utc": "2026-09-12T07:00:26.729959+00:00", "from": "PENDING", "reason": "transition", "resolved_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce", "to": "PREFILLING"}
+{"at_utc": "2026-09-12T07:01:29.143140+00:00", "from": "PREFILLING", "reason": "transition", "resolved_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce", "to": "TRAINING"}
+{"at_utc": "2026-09-12T17:45:53.030551+00:00", "from": "TRAINING", "reason": "transition", "resolved_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce", "to": "EVALUATING"}
+{"at_utc": "2026-09-12T17:46:03.952123+00:00", "from": "EVALUATING", "reason": "transition", "resolved_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce", "to": "COMPLETED"}

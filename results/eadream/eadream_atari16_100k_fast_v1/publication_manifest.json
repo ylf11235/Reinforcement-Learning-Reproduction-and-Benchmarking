@@ -1,0 +1,152 @@
+{
+  "changes": [
+    "Remap historical package/output paths to repository-relative publishing paths.",
+    "Remove upstream OpenCV wheel build log (contains third-party CI absolute paths).",
+    "Separate old provenance/config hashes from hashes of the derived publication records.",
+    "Omit references to source-only launchers/modules; retain original provenance bytes' SHA256.",
+    "Original torch.compile executions had runtime.compile=false in archived configurations; do not rewrite this historical claim as if it had been captured at training time.",
+    "Exclude TensorBoard event files and full rollout logs from the published tree to keep the repository lean; they remain in the source archives."
+  ],
+  "files": {
+    "games/alien/seed_000/checkpoints/metadata.json": {
+      "published_sha256": "d145d43a388c3a8eaedf127f2614c834874d8943b6a5a656d3d8bb6567032acc",
+      "source_sha256": "d145d43a388c3a8eaedf127f2614c834874d8943b6a5a656d3d8bb6567032acc"
+    },
+    "games/alien/seed_000/evaluations/formal_100k.json": {
+      "published_sha256": "8285dc4e90b5d29c8ecffc7bb890a305179d77f07c3b1fab9d6e6c509c9d171a",
+      "source_sha256": "8285dc4e90b5d29c8ecffc7bb890a305179d77f07c3b1fab9d6e6c509c9d171a"
+    },
+    "games/alien/seed_000/evaluations/pposb3_audit_100k.json": {
+      "published_sha256": "e4d443ca3499c7e7a0ff68ed98eabe528ee1a9b392632bf340a4064e4103cd86",
+      "source_sha256": "e4d443ca3499c7e7a0ff68ed98eabe528ee1a9b392632bf340a4064e4103cd86"
+    },
+    "games/alien/seed_000/input_config.yaml": {
+      "published_sha256": "24a2ed776827c965b18ff390fa4b25169cc588d806c48ba7539c8c8f1cce404c",
+      "source_sha256": "e4162b659b74de87ef37b4e763147a97a19f461c4681228269e0a4d34ed6f8a9"
+    },
+    "games/alien/seed_000/logs/metrics.jsonl": {
+      "published_sha256": "398dcbf95c236d799d5940d7f58acc100011b60c2b2d5408f14afe1725cb0810",
+      "source_sha256": "398dcbf95c236d799d5940d7f58acc100011b60c2b2d5408f14afe1725cb0810"
+    },
+    "games/alien/seed_000/logs/transitions.jsonl": {
+      "published_sha256": "1dbd041a7db76783f9a5d78d3257c61eb8aa085d537f89ce595f56b05113e75a",
+      "source_sha256": "1dbd041a7db76783f9a5d78d3257c61eb8aa085d537f89ce595f56b05113e75a"
+    },
+    "games/alien/seed_000/provenance.json": {
+      "published_sha256": "2daf1fdae849c2a475f910c126edf32c76c6844db22d09134f95dbf3051a6816",
+      "source_sha256": "f40fa0f5dcb06b04ab26743e41e690bb9f00a994f8f33c6a8355b923e593332b"
+    },
+    "games/alien/seed_000/resolved_config.yaml": {
+      "published_sha256": "4b0d3f1ea3933c03df4d31059287afcbe301651b763aa56969947afe63000c74",
+      "source_sha256": "e4162b659b74de87ef37b4e763147a97a19f461c4681228269e0a4d34ed6f8a9"
+    },
+    "games/alien/seed_000/run_state.json": {
+      "published_sha256": "d6888d86143d28f92024139d714e08697a25fffe37b52d27c20108efe7f7ddb7",
+      "source_sha256": "4c22ff586f78163f74232f01f44fe36e4caa55b627b0fba78d60071178cab8e9"
+    },
+    "games/frostbite/seed_000/checkpoints/metadata.json": {
+      "published_sha256": "ce43ecfce47c2a03da29b81e052688d689bb3a4e9cfacf1ad710db7b2a18e6f5",
+      "source_sha256": "ce43ecfce47c2a03da29b81e052688d689bb3a4e9cfacf1ad710db7b2a18e6f5"
+    },
+    "games/frostbite/seed_000/evaluations/formal_100k.json": {
+      "published_sha256": "3dcf7cfb0955aa2c7e320403003f43447e7563c1a4498a2bd1435598e30c766e",
+      "source_sha256": "3dcf7cfb0955aa2c7e320403003f43447e7563c1a4498a2bd1435598e30c766e"
+    },
+    "games/frostbite/seed_000/evaluations/pposb3_audit_100k.json": {
+      "published_sha256": "11cbda6688759cb514f714727759948d91008098917025e686ac6263651c66bd",
+      "source_sha256": "11cbda6688759cb514f714727759948d91008098917025e686ac6263651c66bd"
+    },
+    "games/frostbite/seed_000/input_config.yaml": {
+      "published_sha256": "171808f83ecb1c5e4490c8fd94d76739e98fa85cbac4594ff2d462b151b51552",
+      "source_sha256": "73a716b835e3a4a777fdf4157da22ca2574a6129be061824a25c716e7d63b83b"
+    },
+    "games/frostbite/seed_000/logs/metrics.jsonl": {
+      "published_sha256": "df9a362cfb3af59607be89f9140d3aef254494000d29489852c7557cab7c1686",
+      "source_sha256": "df9a362cfb3af59607be89f9140d3aef254494000d29489852c7557cab7c1686"
+    },
+    "games/frostbite/seed_000/logs/transitions.jsonl": {
+      "published_sha256": "ecaca7e18c4857fc1153b74c22ca2b1465e3c40b117022daeb2a1ed6bb258c00",
+      "source_sha256": "ecaca7e18c4857fc1153b74c22ca2b1465e3c40b117022daeb2a1ed6bb258c00"
+    },
+    "games/frostbite/seed_000/provenance.json": {
+      "published_sha256": "8e82d69b788eabcf05ab76afc94a946f2c11a8d1ff61b293a3f7af6740cda67e",
+      "source_sha256": "3aa5b44ab461f1466703e2804d57789ed42a3958e22e9a32ede0cc879c9207eb"
+    },
+    "games/frostbite/seed_000/resolved_config.yaml": {
+      "published_sha256": "c32a29b216ac90232fed99df666df56d86d299c8cb8394fea7849b5164fbe4bd",
+      "source_sha256": "73a716b835e3a4a777fdf4157da22ca2574a6129be061824a25c716e7d63b83b"
+    },
+    "games/frostbite/seed_000/run_state.json": {
+      "published_sha256": "16c0f2d09d68b0d658cc9f3cad564f1aa031e2984e96b910e068a29fa398c013",
+      "source_sha256": "53d2bb7cf377236dfb8ee1abc850f85c2dd021762fb66f2a44acc0ab46c04c6f"
+    },
+    "games/montezuma_revenge/seed_000/checkpoints/metadata.json": {
+      "published_sha256": "16440c21f32d14a95d6000a2ef0fea015a7b69e51da46d63dbbd9f10571c311e",
+      "source_sha256": "16440c21f32d14a95d6000a2ef0fea015a7b69e51da46d63dbbd9f10571c311e"
+    },
+    "games/montezuma_revenge/seed_000/evaluations/formal_100k.json": {
+      "published_sha256": "de358116fce53e9e511cf4b0f56cf2f0f15e0fa2d6d5f82e83d0e3a559071448",
+      "source_sha256": "de358116fce53e9e511cf4b0f56cf2f0f15e0fa2d6d5f82e83d0e3a559071448"
+    },
+    "games/montezuma_revenge/seed_000/evaluations/pposb3_audit_100k.json": {
+      "published_sha256": "30ec71fa166614ca469d020c8145d3368ac8299f0505c7c031858955d17d53ce",
+      "source_sha256": "30ec71fa166614ca469d020c8145d3368ac8299f0505c7c031858955d17d53ce"
+    },
+    "games/montezuma_revenge/seed_000/input_config.yaml": {
+      "published_sha256": "1d29571247f53d24f132d3108c016b5890ee17886f1700254d69294b2176d727",
+      "source_sha256": "e53b6d25edc59c2158f352f0ad185abdb51b892d53bdc61f37b32d6031b9a704"
+    },
+    "games/montezuma_revenge/seed_000/logs/metrics.jsonl": {
+      "published_sha256": "8dfe00713cfa551eb6e7376882793128c25ce40ff05936da7f0b74af9ba0b04c",
+      "source_sha256": "8dfe00713cfa551eb6e7376882793128c25ce40ff05936da7f0b74af9ba0b04c"
+    },
+    "games/montezuma_revenge/seed_000/logs/transitions.jsonl": {
+      "published_sha256": "ba49e48ed03033c41f9bd4bd62c29711d0afe9b265b096e688ae9f84e5f5d52a",
+      "source_sha256": "ba49e48ed03033c41f9bd4bd62c29711d0afe9b265b096e688ae9f84e5f5d52a"
+    },
+    "games/montezuma_revenge/seed_000/provenance.json": {
+      "published_sha256": "de70d75b0ff5fc073c65be89e20c9f6a1436529569aff627443082fcf60f5244",
+      "source_sha256": "7c8e30d82f93697dfa0455d7c0694ed850c3b92e7e5e427fb890f568d591c5a8"
+    },
+    "games/montezuma_revenge/seed_000/resolved_config.yaml": {
+      "published_sha256": "5217cf41cab39c745fe24f0eb8803dd5f24abc5e59438f0162cc2b0a63eadea5",
+      "source_sha256": "e53b6d25edc59c2158f352f0ad185abdb51b892d53bdc61f37b32d6031b9a704"
+    },
+    "games/montezuma_revenge/seed_000/run_state.json": {
+      "published_sha256": "fd1a7060261c78ea75fa4ad81210d10ad5b4e79f9085739b3b21f879b01e9708",
+      "source_sha256": "7c2caef5083a972537b4f2dcb3fca162549a5e64816e5072f76343b4308d5f57"
+    }
+  },
+  "historical_run_hashes": {
+    "alien": {
+      "checkpoint_sha256": "55ff51b877bdad873566bc8c34ac6ef03ff5a8e7119739b4089defbd14787ad4",
+      "historical_runtime_compile_observed": true,
+      "historical_runtime_compile_recorded": false,
+      "published_config_sha256": "afb83086ea72c22ccfcdb56e1697a5e32389d8cc899a09849f0e47b852b995a1",
+      "published_provenance_sha256": "0eeb70d9766b5a468d72f5908abef31724636a0e5867ee087c635ebb0bc3a874",
+      "source_config_sha256": "33149f8ad7de6c878eebe310c6d93c6bc248613f29ad1a33b5f40da200835455",
+      "source_provenance_sha256": "aa6836b19167a730b0dcde872c22ea3269f68e74a73f4f529e7df5d8f869057b"
+    },
+    "frostbite": {
+      "checkpoint_sha256": "97b0560a77ffa8df429b953d6e4d58140610a34a70b2855c75b80378aed6a96e",
+      "historical_runtime_compile_observed": true,
+      "historical_runtime_compile_recorded": false,
+      "published_config_sha256": "9fc7ffa4568d06823e0991f7f26a186bfd7cc8dea4f85d9c296f3a07d0e8ea12",
+      "published_provenance_sha256": "b8c1b332f85be8e78253c06d5e228942d7960824adaf278b9d93168105fdff0b",
+      "source_config_sha256": "6d40ef1d04bdffbd3b94a2ed15ff390f121064c208db8bd0d8760a70fba3adce",
+      "source_provenance_sha256": "24842a743757454a3c34d9679b09b4ff4bb0f5c249228f7b7f021a7557ec423b"
+    },
+    "montezuma_revenge": {
+      "checkpoint_sha256": "1a04b85529d4de8f19f7f06ce84ff2f8d4120dfcc9db1f70483e84f97e25805f",
+      "historical_runtime_compile_observed": true,
+      "historical_runtime_compile_recorded": false,
+      "published_config_sha256": "482af06c6e8b82caefd590d9845e7bb0c1740663eb2c8e79cebd978f497741c6",
+      "published_provenance_sha256": "351a9b0794f029f7a1a9246469c7747742267c8a10b3b1b4138513063644701b",
+      "source_config_sha256": "56e176593d386081fa2a899a94edd39a5143e01c5022e3719d44571e99b571b3",
+      "source_provenance_sha256": "ba1c1c84788b7d16bd68dca2e320c1eb1bbe5439c4bb8f16bd9ab02f7ad28e5e"
+    }
+  },
+  "schema_version": 1,
+  "source": "original historical research run outputs (not distributed)",
+  "source_identity": "source_sha256 identifies pre-publication file bytes; published_sha256 identifies the bytes here"
+}

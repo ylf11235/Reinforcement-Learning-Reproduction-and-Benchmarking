@@ -1,0 +1,21 @@
+{
+  "config_hash": "efd141252d4dc35c335907c3c3d07ac0304b503758c03a4bf0916bf6ef724173",
+  "created_at_unix": 1788817258.199198,
+  "result": {
+    "action_count": 8,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\gopher\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "56a246a9f0f3d20ac2c82f0745a7abf2bc64afe99ea33d3c0a5c27cec21cee6f",
+    "final_raw_return_mean": 2598.6666666666665,
+    "final_raw_return_median": 2760.0,
+    "final_raw_return_std": 674.743078676782,
+    "training_wall_time_s": 8363.610364437103,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\gopher\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788825629.5722892
+}

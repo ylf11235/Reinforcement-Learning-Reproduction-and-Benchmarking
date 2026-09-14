@@ -3,7 +3,7 @@
 The Atari-16 suite is a fixed 16-game manifest used as the primary benchmarking
 environment of this repository. It was first exercised by the `PPOSB3`
 Atari-16 × 10M × seed-0 campaign (`ppo_sb3_atari16_10m_seed0_v1`, manifest
-`PPOSB3/configs/atari16.yaml`); experiment scores and per-backend configurations
+`algorithms/ppo_sb3/configs/atari16.yaml`); experiment scores and per-backend configurations
 are reported in [`../reports/ppo-experiments.md`](../reports/ppo-experiments.md).
 
 ## 1. Selection Logic
@@ -81,4 +81,4 @@ The PPO-PyTorch reference backend uses **Atari-10**, the subset of Atari-16
 that drops the six mandatory hard-exploration games (where PPO reliably scores
 ~0) and keeps the ten skill representatives with denser rewards: alien,
 asteroids, bowling, chopper_command, enduro, frostbite, gopher, kung_fu_master,
-seaquest, tennis (`PPO-PyTorch/configs/atari10.yaml`).
+seaquest, tennis (`algorithms/ppo_pytorch/configs/atari10.yaml`).

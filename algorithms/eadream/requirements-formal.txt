@@ -1,0 +1,8 @@
+numpy==1.26.4
+opencv-python-headless==4.7.0.72
+gymnasium==1.2.2
+ale-py==0.12.1
+PyYAML>=6.0,<7
+tensorboard>=2.20,<3
+imageio-ffmpeg>=0.6,<1
+pytest==8.4.2  # required by the static unit/golden and checkpoint gates

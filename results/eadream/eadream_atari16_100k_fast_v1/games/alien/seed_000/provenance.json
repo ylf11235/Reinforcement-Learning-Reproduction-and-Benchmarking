@@ -1,0 +1,426 @@
+{
+  "ale": {
+    "action_count": 18,
+    "action_meanings": [
+      "NOOP",
+      "FIRE",
+      "UP",
+      "RIGHT",
+      "LEFT",
+      "DOWN",
+      "UPRIGHT",
+      "UPLEFT",
+      "DOWNRIGHT",
+      "DOWNLEFT",
+      "UPFIRE",
+      "RIGHTFIRE",
+      "LEFTFIRE",
+      "DOWNFIRE",
+      "UPRIGHTFIRE",
+      "UPLEFTFIRE",
+      "DOWNRIGHTFIRE",
+      "DOWNLEFTFIRE"
+    ],
+    "version": "0.12.1"
+  },
+  "captured_at_utc": "2026-09-11T08:19:40.885123+00:00",
+  "cold_start": {
+    "construction_order": [
+      "seed",
+      "environment",
+      "agent",
+      "engine_after_prefill"
+    ],
+    "diagnostic_rng_isolation": true,
+    "rng_seed_before_environment_and_model_construction": 0
+  },
+  "opencv": {
+    "version": "4.7.0"
+  },
+  "package_versions": {
+    "ale-py": "0.12.1",
+    "gymnasium": "1.2.2",
+    "numpy": "1.26.4",
+    "opencv-contrib-python": null,
+    "opencv-contrib-python-headless": null,
+    "opencv-python": null,
+    "opencv-python-headless": "4.7.0.72",
+    "torch": "2.11.0+cu130"
+  },
+  "preflight": {
+    "action_count": 18,
+    "action_meanings": [
+      "NOOP",
+      "FIRE",
+      "UP",
+      "RIGHT",
+      "LEFT",
+      "DOWN",
+      "UPRIGHT",
+      "UPLEFT",
+      "DOWNRIGHT",
+      "DOWNLEFT",
+      "UPFIRE",
+      "RIGHTFIRE",
+      "LEFTFIRE",
+      "DOWNFIRE",
+      "UPRIGHTFIRE",
+      "UPLEFTFIRE",
+      "DOWNRIGHTFIRE",
+      "DOWNLEFTFIRE"
+    ],
+    "actual_rom_sha256": "9cd556c7d7f55aeb78fc5add45d74ce889c6e22cba6bb535ef1e8bd6b6c764c1",
+    "cuda": {
+      "available": true,
+      "compute_capability": "12.0",
+      "cudnn": 91900,
+      "device_count": 1,
+      "device_index": 0,
+      "driver": "581.57",
+      "driver_version": "581.57",
+      "memory_total_bytes": 17094934528,
+      "name": "NVIDIA GeForce RTX 5080",
+      "torch_cuda": "13.0",
+      "total_memory": 17094934528
+    },
+    "package_versions": {
+      "ale-py": "0.12.1",
+      "gymnasium": "1.2.2",
+      "numpy": "1.26.4",
+      "opencv-contrib-python": null,
+      "opencv-contrib-python-headless": null,
+      "opencv-python": null,
+      "opencv-python-headless": "4.7.0.72",
+      "torch": "2.11.0+cu130"
+    }
+  },
+  "process_id": 25568,
+  "provenance_sha256": "0eeb70d9766b5a468d72f5908abef31724636a0e5867ee087c635ebb0bc3a874",
+  "python": {
+    "implementation": "CPython",
+    "platform": "Windows-10-10.0.22621-SP0",
+    "version": "3.10.20"
+  },
+  "reference": {
+    "commit": "269f71af5b3510fbcdb2c7d3ebeb22b1a15f5241",
+    "files": {
+      "EADream/configsc.yaml": [
+        5225,
+        "85af3c422b22dac91ad15a8bb1c4ae41d78b71f2318805daf0a0aacb33655fa8"
+      ],
+      "EADream/dreamer.py": [
+        15533,
+        "1b88e45b6d90be3b9f8bea69e413cdffb3fa1f55f4e38da605721eb602468a07"
+      ],
+      "EADream/envs/atari.py": [
+        5146,
+        "099a9f1e92f25abb0f3e6ea0465d87ff15927aab064f67e5f2aae8ed05cc121d"
+      ],
+      "EADream/envs/wrappers.py": [
+        26599,
+        "9f0751da39ebc582f4bd3a2a2a6ede9ad0353a886691d84a3620888a223ab5f6"
+      ],
+      "EADream/eval.py": [
+        14240,
+        "1200118d5fdbb633fbc8ee9973c94e7d6c39ade45a5e88ff320a037ace405f92"
+      ],
+      "EADream/models.py": [
+        30289,
+        "856f1cf9bd3aa26826af7f2e85ca912e47d311f29b03d8a823a7e804067347fc"
+      ],
+      "EADream/networks.py": [
+        53897,
+        "37d5b9a26a1f5f4e23854c8135f86746de2a1d112078a67c8ea9fa86d133a597"
+      ],
+      "EADream/requirements.txt": [
+        428,
+        "0e96193ee5d7bc644201d4f8d69eb20c8c98a3b5dd9b3eb2986cf0515cf5fbd3"
+      ],
+      "EADream/tools.py": [
+        38916,
+        "e6f1df2d4cb60944222e8d815203fc72b67196587bf429583f678c16b883bf77"
+      ],
+      "LICENSE": [
+        35148,
+        "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b"
+      ]
+    },
+    "manifest_sha256": "0d2e47d2ec83faa728c47dec635ea33c177dcac3a76814f62c9684ebeb0f16ca"
+  },
+  "resolved_config": {
+    "budget": {
+      "agent_interactions": 100000,
+      "ale_frames_nominal": 400000,
+      "unit": "agent_interactions"
+    },
+    "campaign": {
+      "automatic_resume": true,
+      "max_retries_per_run": 1,
+      "on_failure": "record_and_continue",
+      "scheduling": "serial",
+      "skip_completed": true
+    },
+    "checkpoint": {
+      "first_periodic_agent_interactions": 10000,
+      "immutable_milestones": [
+        100000
+      ],
+      "keep_periodic": 2,
+      "save_every_agent_interactions": 7500,
+      "validate_after_write": true
+    },
+    "environment": {
+      "action_repeat": 4,
+      "frame_stack": 1,
+      "frameskip": 1,
+      "grayscale": false,
+      "max_agent_steps_per_episode": 27000,
+      "max_num_frames_per_episode": 108000,
+      "max_pool_semantics": "source_fixed_two_buffer",
+      "minimal_action_set": true,
+      "noop_max_exclusive": 30,
+      "repeat_action_probability": 0.0,
+      "reward_clip": false,
+      "screen_size": 64,
+      "start_protocol": "none",
+      "terminal_on_life_loss": false
+    },
+    "evaluation": {
+      "audit_seeds": [
+        20000,
+        20001,
+        20002,
+        20003,
+        20004,
+        20005,
+        20006,
+        20007,
+        20008,
+        20009,
+        20010,
+        20011,
+        20012,
+        20013,
+        20014,
+        20015,
+        20016,
+        20017,
+        20018,
+        20019,
+        20020,
+        20021,
+        20022,
+        20023,
+        20024,
+        20025,
+        20026,
+        20027,
+        20028,
+        20029
+      ],
+      "deterministic": true,
+      "eval_state_mean": false,
+      "evaluator_rng": "source_seed_before_model_construction",
+      "formal_episodes": 100,
+      "formal_seed_source": "train_seed_fresh_env",
+      "no_fire_diagnostic_games": [
+        "bowling",
+        "tennis"
+      ],
+      "no_fire_diagnostic_steps": 200,
+      "periodic_anchor_agent_interactions": 2500,
+      "periodic_every_agent_interactions": 7500,
+      "periodic_nominal_ale_frames": 30000,
+      "rssm_sampling": true
+    },
+    "events": {
+      "closing_kernel": 3,
+      "closing_shape": "ellipse",
+      "detect_shadows": true,
+      "event_pred_ratio": 0.05,
+      "history": 500,
+      "learning_rate": -1.0,
+      "var_threshold": 16.0
+    },
+    "experiment": {
+      "algorithm": "eadream",
+      "formal": false,
+      "id": "eadream_atari16_100k_fast",
+      "result_kind": "atari16_100k"
+    },
+    "game": {
+      "env_id": "ALE/Alien-v5",
+      "rom_sha256": "9cd556c7d7f55aeb78fc5add45d74ce889c6e22cba6bb535ef1e8bd6b6c764c1",
+      "seed": 0,
+      "slug": "alien"
+    },
+    "model": {
+      "activation": "SiLU",
+      "actor_distribution": "onehot",
+      "actor_outscale": 1.0,
+      "cnn_depth": 32,
+      "cnn_kernel": 4,
+      "cnn_min_resolution": 4,
+      "continuation_outscale": 1.0,
+      "decoder_attention": false,
+      "decoder_output_offset": 0.5,
+      "dense_event_filter": true,
+      "dyn_deter": 512,
+      "dyn_discrete": 32,
+      "dyn_hidden": 512,
+      "dyn_rec_depth": 1,
+      "dyn_scale": 0.5,
+      "dyn_stoch": 64,
+      "encoder_attention": true,
+      "encoder_attention_kernel": 3,
+      "encoder_attention_ratio": 2,
+      "encoder_embed_dim": 4096,
+      "encoder_input_offset": -0.5,
+      "event_decoder_attention": false,
+      "event_focal_alpha": 0.15,
+      "event_focal_gamma": 4.0,
+      "event_loss_scale": 0.5,
+      "event_output_sigmoid": true,
+      "first_frame_prediction": false,
+      "harmony": true,
+      "head_layers": 2,
+      "image_attention_weight": 0.5,
+      "image_input_scale": "divide_255",
+      "initial": "learned",
+      "kl_free": 1.0,
+      "layer_norm_eps": 0.001,
+      "mae_ratio": 1.0,
+      "multihead_rssm_input": false,
+      "normalization": "LayerNorm",
+      "predict_from_prior": true,
+      "previous_current_event_input": false,
+      "reconstruction_target_range": "zero_one",
+      "rep_scale": 0.1,
+      "reward_outscale": 0.0,
+      "scalar_buckets": 255,
+      "scalar_distribution": "symlog_disc",
+      "scalar_high": 20.0,
+      "scalar_low": -20.0,
+      "unimix_ratio": 0.01,
+      "units": 512,
+      "value_outscale": 0.0
+    },
+    "output": {
+      "archive_root": "algorithms/eadream/archives/atari16/eadream_atari16_100k_fast_v1",
+      "archive_scope": "result",
+      "campaign_root": "algorithms/eadream/runs/atari16/eadream_atari16_100k_fast_v1"
+    },
+    "provenance": {
+      "declared_actor_value_eps": 1e-05,
+      "declared_extra_weight_decay": 0.0,
+      "reference_commit": "269f71af5b3510fbcdb2c7d3ebeb22b1a15f5241",
+      "reference_manifest": "algorithms/eadream/reference_manifest.json"
+    },
+    "resolved_config_sha256": "afb83086ea72c22ccfcdb56e1697a5e32389d8cc899a09849f0e47b852b995a1",
+    "runtime": {
+      "compile": true,
+      "deterministic_algorithms": false,
+      "device": "cuda:0",
+      "num_envs": 1,
+      "precision": "float32",
+      "python_version": "3.10.20",
+      "require_cuda": true,
+      "torch_cuda_version": "13.0",
+      "torch_version": "2.11.0+cu130"
+    },
+    "schema_version": 1,
+    "suite": {
+      "id": "atari16",
+      "manifest": "algorithms/eadream/configs/atari16.yaml",
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "training": {
+      "actor_entropy": 0.0003,
+      "actor_grad_clip": 100.0,
+      "actor_lr": 3e-05,
+      "batch_length": 64,
+      "batch_size": 16,
+      "dataset_size": 1000000,
+      "detect_anomaly_world_model": false,
+      "discount": 0.997,
+      "exploration_behavior": "greedy",
+      "exploration_until": 0,
+      "imag_gradient": "reinforce",
+      "imag_gradient_mix": 0.0,
+      "imag_horizon": 15,
+      "lambda": 0.95,
+      "model_grad_clip": 1000.0,
+      "model_lr": 0.0001,
+      "optimizer": "adamw",
+      "optimizer_effective_betas": [
+        0.9,
+        0.999
+      ],
+      "optimizer_effective_eps": 1e-08,
+      "optimizer_effective_weight_decay": 0.01,
+      "prefill": 2500,
+      "pretrain_batches": 100,
+      "reward_ema": true,
+      "reward_ema_alpha": 0.01,
+      "sequence_sampler_seed": 0,
+      "slow_value_fraction": 0.02,
+      "slow_value_update": 1,
+      "train_ratio": 1024,
+      "value_grad_clip": 100.0,
+      "value_lr": 3e-05
+    },
+    "video": {
+      "checkpoint": "best",
+      "enabled": true,
+      "episode_seeds": [
+        30000,
+        30001,
+        30002
+      ],
+      "source": "native_ale_rgb",
+      "world_model_prediction": true
+    }
+  },
+  "resolved_config_sha256": "afb83086ea72c22ccfcdb56e1697a5e32389d8cc899a09849f0e47b852b995a1",
+  "rom": {
+    "actual_sha256": "9cd556c7d7f55aeb78fc5add45d74ce889c6e22cba6bb535ef1e8bd6b6c764c1",
+    "expected_sha256": "9cd556c7d7f55aeb78fc5add45d74ce889c6e22cba6bb535ef1e8bd6b6c764c1"
+  },
+  "source_implementation_sha256": {},
+  "source_launch_options": [
+    "--seed",
+    "0",
+    "--compile"
+  ],
+  "source_only_implementation_file_count": 42,
+  "source_provenance_sha256": "aa6836b19167a730b0dcde872c22ea3269f68e74a73f4f529e7df5d8f869057b",
+  "source_semantics": {
+    "encoder": "image / 255.0 - 0.5",
+    "evaluation_rssm": "sampled stochastic state",
+    "fire_deviation": "FIRE used for Bowling/Tennis train/evaluation/audit/video; upstream diagnostic is no-FIRE",
+    "max_pool": "source_fixed_two_buffer"
+  },
+  "torch": {
+    "cuda": {
+      "available": true,
+      "compute_capability": "12.0",
+      "cudnn": 91900,
+      "device_count": 1,
+      "device_index": 0,
+      "driver": "581.57",
+      "driver_version": "581.57",
+      "memory_total_bytes": 17094934528,
+      "name": "NVIDIA GeForce RTX 5080",
+      "torch_cuda": "13.0",
+      "total_memory": 17094934528
+    },
+    "deterministic_algorithms": false,
+    "version": "2.11.0+cu130"
+  }
+}

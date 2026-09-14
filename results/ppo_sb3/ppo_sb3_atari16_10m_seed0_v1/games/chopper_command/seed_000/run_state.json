@@ -1,0 +1,21 @@
+{
+  "config_hash": "c1a1421013ca7b4ad47e55d0478e51ef7430c2d72d35834e587e5afaf4e848d6",
+  "created_at_unix": 1788785799.4430616,
+  "result": {
+    "action_count": 18,
+    "device": "cuda:0",
+    "effective_timesteps": 10000384,
+    "final_checkpoint": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\chopper_command\\seed_000\\final_checkpoint\\model.zip",
+    "final_checkpoint_sha256": "44d9bb6623e01adcc473156efde5e0c35f8b255f1511eecea544ba9ef15ae507",
+    "final_raw_return_mean": 2156.6666666666665,
+    "final_raw_return_median": 1700.0,
+    "final_raw_return_std": 935.4796749380621,
+    "training_wall_time_s": 8847.388341903687,
+    "video_episodes": 3,
+    "videos_index": "ppo16\\ppo_sb3_atari16_10m_seed0_v1\\games\\chopper_command\\seed_000\\videos\\best\\episodes.json"
+  },
+  "resume": false,
+  "schema_version": 1,
+  "status": "COMPLETED",
+  "updated_at_unix": 1788794651.3247705
+}
