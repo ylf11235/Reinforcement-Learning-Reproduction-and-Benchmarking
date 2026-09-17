@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: atari16_10m
+game:
+  slug: skiing
+environment:
+  start_protocol: none

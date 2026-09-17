@@ -1,0 +1,18 @@
+{
+  "step": 500000,
+  "config_fingerprint": "748e21d77d6b191c9caeaa6b303a9981eb759cbe0d220613b8e6022ce288fb26",
+  "durable": false,
+  "created_at": "2026-09-16T04:29:16+00:00",
+  "files": {
+    "agent_var.npy": "2b998ad1645b3758837c298e56698661bd7c3d5b5e2c2b4a437f1f4568c1f51b",
+    "encoder.pt": "974d619ecc5582c7e0e403e72f44e6f85ef9f88cedb0ea8981cd32fad017dc13",
+    "encoder_optimizer.pt": "3fe7028c0d656dfd85ba48dbe1f81ad62f98ec32e2381f0175a3d3c371412e09",
+    "encoder_target.pt": "1071cc5aebdde099dfd68cedab32e9e251991b655780a949e81956f8ccdcb114",
+    "policy.pt": "8e7c5c4fd9c271f807a27fd535a31f0127ae2ece5c7fe46fe26b1a272f132140",
+    "policy_optimizer.pt": "7f70960e6f0e689e9522f20bb1d7a503ea4175fa245fc3363d63ba9416dd1b2e",
+    "policy_target.pt": "08234b3a8ee9f8fc65763eca241871f4eb5f9710a66613e76f0e61053fa1484a",
+    "value.pt": "372e81d36365cc34f8adeb2f6d8ecfcff6cc656037e3892be3608f43376ea8e6",
+    "value_optimizer.pt": "ef2fd394b0ea5ddf945e71ba68c3ea3db7d1ec7679a4aeb6ad9a64530e021597",
+    "value_target.pt": "ea04e180371c8ddc05a2dc0e1bb7d23e7a43f6028623584171126a74a81a61db"
+  }
+}

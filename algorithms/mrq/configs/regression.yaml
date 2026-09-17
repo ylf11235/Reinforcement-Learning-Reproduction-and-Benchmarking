@@ -1,0 +1,25 @@
+schema_version: 1
+experiment:
+  id: mrq_regression
+  algorithm: mrq
+  variant: regression
+  campaign: regression
+suite:
+  id: regression
+  games:
+  - alien
+  - frostbite
+  - seaquest
+  expected_game_count: 3
+budget:
+  unit: agent_steps
+  steps_requested: 2500000
+  raw_frames: 10000000
+runtime:
+  seed: 0
+environment:
+  repeat_action_probability: 0.25
+  noop_max: 0
+  clip_reward: false
+output:
+  run_root: runs/regression_v1

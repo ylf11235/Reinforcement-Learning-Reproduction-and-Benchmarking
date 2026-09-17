@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: regression
+game:
+  slug: seaquest
+environment:
+  start_protocol: none

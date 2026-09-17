@@ -1,0 +1,83 @@
+schema_version: 1
+experiment:
+  id: mrq_atari16_1m_raw
+  algorithm: mrq
+  variant: house
+  campaign: atari16_1m
+suite:
+  id: atari16_1m
+  games:
+  - alien
+  expected_game_count: 1
+game:
+  slug: alien
+  env_id: ALE/Alien-v5
+budget:
+  unit: agent_steps
+  steps_requested: 1000000
+  raw_frames: 4000000
+runtime:
+  device: auto
+  require_device: false
+  seed: 0
+  deterministic: true
+  cudnn_benchmark: true
+environment:
+  frame_skip: 4
+  screen_size: 84
+  stack: 4
+  max_num_frames_per_episode: 108000
+  repeat_action_probability: 0.0
+  noop_max: 30
+  clip_reward: false
+  start_protocol: none
+algorithm:
+  batch_size: 256
+  buffer_size: 1000000
+  discount: 0.99
+  target_update_freq: 250
+  encoder_burst_steps: 250
+  buffer_size_before_training: 10000
+  exploration_noise: 0.2
+  exploration_noise_discrete: 0.1
+  target_policy_noise: 0.2
+  target_policy_noise_clip: 0.3
+  target_policy_noise_discrete: 0.1
+  target_policy_noise_clip_discrete: 0.15
+  encoder_loss_weight_dyn: 1.0
+  encoder_loss_weight_reward: 0.1
+  encoder_loss_weight_done: 0.1
+  priority_alpha: 0.4
+  min_priority: 1.0
+  enc_horizon: 5
+  q_horizon: 3
+  zs_dim: 512
+  zsa_dim: 512
+  za_dim: 256
+  hdim: 512
+  encoder_lr: 0.0001
+  value_lr: 0.0003
+  policy_lr: 0.0003
+  weight_decay: 0.0001
+  value_grad_clip: 20.0
+  gumbel_tau: 10.0
+  pre_activation_penalty: 1.0e-05
+  twohot_num_bins: 65
+  twohot_lower: -10.0
+  twohot_upper: 10.0
+  shift_augment_pad: 4
+evaluation:
+  periodic_freq: 100000
+  periodic_episodes: 10
+  periodic_seed_base: 10000
+  audit_episodes: 30
+  audit_seed_base: 20000
+  eval_eps_random: 0.001
+checkpoint:
+  model_after_eval: true
+  durable_every: 500000
+output:
+  run_root: runs/atari16_1m_raw
+provenance:
+  record_pip_freeze: true
+  record_rom_hash: true

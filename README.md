@@ -6,6 +6,12 @@
 
 An open-source project primarily focused on **reproducing, understanding, and benchmarking modern reinforcement learning algorithms**.
 
+**Leaderboards:**
+
+- [Atari-16 (image state, discrete action, gaming)](#leaderboard-atari-16-human-normalized-score)
+- [DMC-hard (vector state, continuous action, locomotion)](#leaderboard-dmc-hard-humanoid-walk)
+- [CarRacing (image state, autonomous driving)](#leaderboard-carracing)
+
 ## Project Purpose
 
 This repository is intended to support practical reinforcement-learning
@@ -39,7 +45,7 @@ The project documents both algorithmic details and practical techniques that aff
 
 Broader domain-specific coverage is a **future direction**, rather than the primary focus of the current work. Planned domains may include games, robotics, locomotion, navigation, manipulation, and general control tasks.
 
-Representative and planned methods include **PPO, SAC, TD7, Agent57, BBF, BTR, multi-agent reinforcement learning methods, and World-Action Models** (EADream is the first world-model entry, see [algorithms/eadream](algorithms/eadream)).
+Representative and planned methods include **PPO, SAC, TD7, MRQ, Agent57, BBF, BTR, multi-agent reinforcement learning methods, and World-Action Models** (EADream is the first world-model entry, see [algorithms/eadream](algorithms/eadream); MRQ is the first entry spanning discrete and continuous control, see [algorithms/mrq](algorithms/mrq)).
 
 ---
 
@@ -52,9 +58,10 @@ median / mean of per-game HNS, sorted by median.
 
 | # | Method | Reproduced | Median HNS | Mean HNS | Training wall-clock / game (mean) | Env-Interact steps / game | Games | Remark |
 | ---: | --- | :---: | ---: | ---: | ---: | ---: | :---: | --- |
-| 1 | Agent57 † | ✗ | 314.6% | 2706.7% | -- | -- | 16/16 | |
-| 2 | PPO (Schulman et al., 2017) † | ✗ | 9.1% | 32.9% | -- | 10M | 14/16 | |
-| 3 | **PPO_SB3** | ✓ | **3.7%** | **16.6%** | **3.51 h** | **10M** | 16/16 | |
+| 1 | Agent57 † | ✗ | 314.6% | 2706.7% | -- | 1.25B–19.5B | 16/16 | Budget range; 256-actor distributed setup (see ††) |
+| 2 | **MRQ** | ✓ | **102.3% (partial)** | **102.3% (partial)** | **8.48 h** | **1M** | 2/16 | Clean-room; raw-reward variant; also runs DMC |
+| 3 | PPO (Schulman et al., 2017) † | ✗ | 9.1% | 32.9% | -- | 10M | 14/16 | |
+| 4 | PPO_SB3 | ✓ | 3.7% | 16.6% | 3.51 h | 10M | 16/16 | |
 | -- | EADream | ✓ | 4.8% (partial) | 3.5% (partial) | 10.47 h | 100K | 3/16 | World model; fast variant |
 | -- | PPO_PyTorch | ✓ | 3.3% (partial) | 3.3% (partial) | 6.86 h | 10M | 2/16 | 2/10 of its Atari-10 target |
 
@@ -63,13 +70,24 @@ column marks whether this repository contains runnable source code and archived
 artifacts for the method: ✓ = trained, audited, and archived here (re-runnable);
 ✗ = paper-only reference (no code here, numbers cannot be re-run or audited).
 
-Partial medians and means describe only the completed games. They are not
-ranked against the full-suite rows and must not be read as Atari-16 aggregates.
+Rows are ordered by median HNS. Values marked **(partial)** describe only
+that method's completed games (MRQ: 2/16 at a 1M-step diagnostic budget) and
+must not be read as Atari-16 suite aggregates.
 
 Leaderboard notes:
 
 - **Agent57**: per-game HNS values taken from Badia et al., Appendix H.4 [[2]](#references),
   aggregated here over the 16 games of this suite (their headline 57-game result is higher).
+- **†† Agent57 interaction budget (single-worker accounting):** the paper
+  reports per-game frame budgets, not wall-clock: 51/57 games pass the human
+  baseline within the first 5B frames, and Skiing (the hardest) needs 78B.
+  Under this repository's single-environment convention (1 agent step =
+  4 raw frames) that is **≈ 1.25B–19.5B agent steps per game** — the total a
+  single-worker serial run would have to accumulate, because the paper's
+  256 CPU actors and one GPU learner parallelize only the *collection* of
+  those interactions, not their number. Training wall-clock stays `--`: the
+  paper does not report it, and the distributed setup makes it
+  non-comparable to the serial one-GPU runs in this table.
 - **PPO (paper)**: mean final score of the last 100 training episodes, 3 seeds, 40M game
   frames per run, converted to HNS [[1]](#references). The paper omits skiing and solaris,
   so the aggregate covers the remaining 14 games.
@@ -114,6 +132,19 @@ Leaderboard notes:
   montezuma_revenge 0.0 (0.0% HNS — hard-exploration game where PPO at 10M
   also scores 0), from the 100-episode deterministic formal evaluation of the
   final checkpoint. Full report: [docs/reports/EADream.md](docs/reports/EADream.md).
+- **MRQ**: clean-room reimplementation of Meta FAIR's MRQ (upstream code is
+  CC BY-NC 4.0; nothing is vendored). Partial row — alien and frostbite only
+  (2/16), at a **1M-step diagnostic budget** with **raw (unclipped) training
+  rewards** under the house environment (experiment id `mrq_atari16_1m_raw`).
+  Same audit as PPO_SB3 (final checkpoint, 30 deterministic episodes, seeds
+  20000–20029, unclipped raw returns): alien 1510.0 (18.6% HNS), frostbite
+  8009.7 (186.1% HNS) — both above the PPO_SB3 @10M scores at one tenth of
+  the interactions. Learner-heavy, interaction-light: ~33 train FPS means a
+  1M-step game costs ≈ 8.5 h. The frozen primary campaigns (2.5M
+  paper-aligned, 10M PPO-comparable) are declared in
+  [algorithms/mrq/configs](algorithms/mrq/configs/) but not yet run. The
+  backend also publishes a DMC continuous-control line (humanoid-walk 500.7
+  @500K). Full report: [docs/reports/MRQ.md](docs/reports/MRQ.md).
 - The existing PPO campaigns were originally step-budgeted. Their recorded
   runtimes are shown as historical evidence and are not retroactively normalized
   to the 6-12 hour protocol; new campaigns should use the wall-clock window and
@@ -132,12 +163,74 @@ Headline findings from the first campaign (PPO on Atari-16, 16/16 completed):
   seaquest (1.48x), and enduro (1.26x), and reaches 0.41x–0.88x of the paper elsewhere
   ([per-game table](docs/reports/ppo-experiments.md#2-ppo-paper-vs-pposb3-on-atari-10-hns)).
 
+## Leaderboard: DMC-hard (humanoid-walk)
+
+Raw episode return on the DMC humanoid-walk task
+([dmc.md](docs/envs/dmc.md)) — vector observations and continuous actions;
+a hard-tier locomotion task on which several strong baselines stall.
+Currently one task (humanoid-walk); the hard tier will grow as further DMC
+campaigns are published. Sorted by score.
+
+| # | Method | Reproduced | Score (mean return) | Env-Interact steps | Note |
+| ---: | --- | :---: | ---: | ---: | --- |
+| 1 | TD-MPC2 † | ✗ | 754 [725, 791] | 500K* | paper row, 10 seeds |
+| 2 | **MRQ** (clean-room reimpl.) | ✓ | **500.7 ± 26.1** | 500K | this repository's run — 30-episode deterministic audit (seeds 20000–20029), 2.55 h |
+| 3 | TD7 † | ✗ | 176 [42, 320] | 500K* | paper row, 10 seeds |
+| 4 | DreamerV3 † | ✗ | 1 [1, 2] | 500K* | paper row (proprio), 10 seeds |
+| 5 | PPO † | ✗ | 1 [1, 2] | 500K* | paper row, 10 seeds |
+
+- **†** Literature rows are the humanoid-walk column of the MRQ paper's
+  DMC-Proprioceptive table [[9]](#references): final performance at 500K
+  agent steps over 10 seeds, 95% bootstrap CI in brackets. They are
+  cross-protocol reference values, not re-runs.
+- **\*** Budget accounting differs: the paper's DMC stack applies action
+  repeat 2 (its 500K steps = 1M native control steps), while this repo's
+  DMC contract uses no action repeat (500K control steps,
+  [dmc.md](docs/envs/dmc.md)) — the repository's MRQ row sits at half the
+  environment interactions of the paper rows. Agent-step budgets are equal.
+- The MRQ row above is this repository's reproduced experiment value from
+  its clean-room reimplementation (single seed, seed 0); the algorithm
+  itself is due to Fujimoto et al. [[9]](#references). Full report:
+  [docs/reports/MRQ.md](docs/reports/MRQ.md).
+
+## Leaderboard: CarRacing
+
+Raw episode return on CarRacing
+([car_racing.md](docs/envs/car_racing.md)). Sorted by score.
+
+| # | Method | Reproduced | Score (mean return) | Env-Interact steps | Note |
+| ---: | --- | :---: | ---: | ---: | --- |
+| 1 | **MRQ** (clean-room reimpl.) | ✓ | **886.7 ± 24.4** | 600K | this repository's run — continuous actions, 30-episode deterministic audit (seeds 20000–20029), 11.95 h |
+| 2 | DreamerV3 ‡ | ✗ | 750 ± 55 | -- | third-party evaluation, CarRacing-v3 (96×96, **discrete** actions) [[10]](#references) |
+| -- | MRQ (clean-room reimpl., frozen diagnostic) | ✓ | 902.1 ± 27.2 | 100K | budget-reduced pilot; reported separately, never merged into headline claims |
+
+- **‡** The DreamerV3 paper itself does not benchmark CarRacing; the
+  reference value is a third-party DreamerV3 evaluation and is
+  cross-protocol in two ways beyond provenance: discrete instead of
+  continuous actions, and a different evaluation protocol. Treat it as a
+  magnitude reference only.
+- Full report: [docs/reports/MRQ.md](docs/reports/MRQ.md). To our
+  knowledge the MRQ row is the first published CarRacing benchmark number
+  for a TD-lineage agent under a deterministic fixed-seed audit; it comes
+  from this repository's clean-room reimplementation, not from the
+  algorithm's authors.
+
 ## Documentation
 
 - **[docs/envs/atari-16.md](docs/envs/atari-16.md)** — the Atari-16 environment suite:
   why these 16 games (skill coverage + the six MuZero-below-human games [[3]](#references)),
   the fixed game order, the unified `ALE/<Game>-v5` environment contract, and where
   reference scores come from.
+- **[docs/envs/dmc.md](docs/envs/dmc.md)** — the DeepMind Control Suite line: the
+  dm_control task contract (state observations, Box actions, control-step budget
+  accounting), the humanoid-walk task, and the adapter's determinism caveat.
+- **[docs/envs/car_racing.md](docs/envs/car_racing.md)** — the CarRacing pixel
+  continuous-control environment: BT.601 grayscale 96×96 observations, Box(3)
+  actions, action-repeat-2 budget accounting, and the adapter contract.
+- **[docs/reports/MRQ.md](docs/reports/MRQ.md)** — MRQ (clean-room) report: Atari-16
+  @1M raw-reward variant results vs PPO_SB3 @10M and the official curves, DMC
+  humanoid-walk vs the paper's 10-seed reference, CarRacing @600K (+ the frozen
+  100K diagnostic), and cost accounting.
 - **[docs/reports/ppo-experiments.md](docs/reports/ppo-experiments.md)** — experiment
   report: PPOSB3 (Stable-Baselines3 PPO, Atari-tuned) and a PPO-PyTorch reference
   backend with upstream CartPole semantics; unified configurations, run results,
@@ -154,6 +247,7 @@ Headline findings from the first campaign (PPO on Atari-16, 16/16 completed):
 | PPO_SB3 (Atari-16) | [algorithms/ppo_sb3](algorithms/ppo_sb3/) | [RUNBOOK.md](algorithms/ppo_sb3/RUNBOOK.md) |
 | PPO_PyTorch (Atari-10) | [algorithms/ppo_pytorch](algorithms/ppo_pytorch/) | [RUNBOOK.md](algorithms/ppo_pytorch/RUNBOOK.md) |
 | EADream (Atari-16, 100K) | [algorithms/eadream](algorithms/eadream/) | [RUNBOOK.md](algorithms/eadream/RUNBOOK.md) |
+| MRQ (Atari-16 + DMC) | [algorithms/mrq](algorithms/mrq/) | [RUNBOOK.md](algorithms/mrq/RUNBOOK.md) |
 
 ### Experiment Environment
 
@@ -193,9 +287,10 @@ Also:
 algorithms/ppo_sb3/      # SB3 PPO backend: code, Atari-16 configs, README + RUNBOOK
 algorithms/ppo_pytorch/  # CartPole-semantics PPO reference backend (Atari-10)
 algorithms/eadream/      # event-aware DreamerV3-style world model (Atari-16, 100K) — self-contained (GPL-3.0)
+algorithms/mrq/          # clean-room MRQ actor-critic (Atari-16 + DMC: discrete + continuous)
 baselines_common/        # shared envs (Atari + video), logging, and IO utilities
 docs/                    # environment suite docs + experiment reports
-results/                 # summary artifacts + TensorBoard curves of published runs
+results/                 # summary artifacts of published runs (curves/logs stay out of git)
 ```
 
 Setup: first install a **PyTorch CUDA build matching your GPU and driver**
@@ -212,6 +307,8 @@ stable-baselines3 2.8.0). CUDA required for training runs.
 | **PPO_SB3** — Atari-16 @ 10M steps | model-free PPO (Stable-Baselines3, Atari-tuned) | ✓ Completed — 16/16 games, seed 0 | [report](docs/reports/ppo-experiments.md) · [results](results/ppo_sb3/) |
 | **PPO_PyTorch** — Atari-10 @ 10M steps | model-free PPO (upstream-faithful reference backend) | Partial — 2-game rerun archived (2/10 target games; 2/16 shared games) | [report](docs/reports/ppo-experiments.md) · [results](results/ppo_pytorch/) |
 | **EADream** — Atari-16 @ 100K steps | event-aware world model (DreamerV3-style) | Partial — fast-variant runs completed for 3/16 games; formal-protocol runs pending | [report](docs/reports/EADream.md) · [results](results/eadream/) |
+| **MRQ** — Atari-16 @ 1M / DMC humanoid-walk @ 500K | model-free MRQ (clean-room, TD-lineage actor-critic, discrete + continuous) | Partial — Atari 2/16 @1M raw-reward variant + DMC humanoid-walk completed; 2.5M/10M primary campaigns and regression-parity runs pending | [report](docs/reports/MRQ.md) · [results](results/mrq/) |
+| **MRQ** — CarRacing @ 600K (+ 100K diagnostic) | MRQ pixel pipeline (pixel continuous control) | ✓ Published — audit 886.7 ± 24.4 @600K; frozen 100K pilot (902.1 ± 27.2) reported separately | [report](docs/reports/MRQ.md) · [results](results/mrq/) |
 | **BTR** [[8]](#references) — Atari-16 @ 10M / 50M steps | value-based, Rainbow-DQN lineage (Impala/IQN, Munchausen, NoisyLinear, PER) | In progress — native backend under implementation, not yet merged | — |
 | **MARL** | multi-agent reinforcement learning | In progress — work stream started, no published runs yet | — |
 
@@ -274,6 +371,16 @@ stable-baselines3 2.8.0). CUDA required for training runs.
    Performance Deep Reinforcement Learning on a Desktop PC.* arXiv:2411.03820,
    2024. https://arxiv.org/abs/2411.03820. Official implementation:
    VIPTankz/BTR.
+9. S. Fujimoto, P. D'Oro, H. Zhang, K. Tian, M. Rabbat. *Towards
+   General-Purpose Model-Free Reinforcement Learning.* arXiv:2501.16142, 2025.
+   https://arxiv.org/abs/2501.16142. Official implementation:
+   facebookresearch/MRQ (CC BY-NC 4.0); this repository ships a clean-room
+   reimplementation ([algorithms/mrq/THIRD_PARTY.md](algorithms/mrq/THIRD_PARTY.md)).
+10. *UGTC: Uncertainty-Gated Temporal Credit* (OpenReview submission,
+   [openreview.net/pdf?id=1BgL4RXnJg](https://openreview.net/pdf?id=1BgL4RXnJg)).
+   Third-party source of the DreamerV3-on-CarRacing reference value
+   (750 ± 55, CarRacing-v3 96×96 discrete). The DreamerV3 paper itself
+   (Hafner et al., arXiv:2301.04104) does not benchmark CarRacing.
 
 ## License
 
@@ -288,3 +395,9 @@ directory-scoped exceptions that carry their own license files:
   **MIT** [LICENSE](algorithms/ppo_pytorch/LICENSE) of
   `nikhilbarhate99/PPO-PyTorch` for the vendored third-party core
   ([THIRD_PARTY.md](algorithms/ppo_pytorch/THIRD_PARTY.md)).
+
+`algorithms/mrq` needs **no exception**: it is a clean-room reimplementation
+of a CC BY-NC 4.0 upstream and contains no upstream material, so it stays
+under the repository-wide Apache-2.0
+([NOTICE](algorithms/mrq/NOTICE.md),
+[THIRD_PARTY](algorithms/mrq/THIRD_PARTY.md)).

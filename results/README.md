@@ -8,9 +8,11 @@ the files below).
 ## Archive conventions
 
 The public artifacts are publication copies, not byte-for-byte originals.
-The EADream [publication manifest](eadream/eadream_atari16_100k_fast_v1/publication_manifest.json)
-records both the original file SHA256 and the SHA256 of each published file,
-so the published bytes and their historical identities can be audited offline.
+Each campaign carries a publication manifest (e.g. the EADream
+[manifest](eadream/eadream_atari16_100k_fast_v1/publication_manifest.json))
+that records both the original file SHA256 and the SHA256 of each published
+file, so the published bytes and their historical identities can be audited
+offline.
 
 - **Absolute paths were relativized.** Paths inside archived JSON now start at
   the producing workspace's runs root (`ppo16\...`, `ppo10_v2\...`) or use the
@@ -26,6 +28,12 @@ so the published bytes and their historical identities can be audited offline.
   hashes. Their checkpoint metadata and unchanged evaluation files retain the
   original run identity. The manifest records both identities explicitly;
   original hashes must not be used to verify the rewritten file bytes.
+- MRQ publication copies additionally drop local editable-install entries
+  from the recorded `pip_freeze`, and the DMC run's `raw_frames` is corrected
+  to the DMC budget definition (the source recorded the Atari ×4 value; see
+  [docs/envs/dmc.md](../docs/envs/dmc.md)). MRQ `resolved_config.yaml` copies
+  carry repository-relative run roots and still recompute to the fingerprint
+  recorded in their `run_state.json` / checkpoint manifests.
 
 The third-party wheel's recorded build metadata contained external CI paths;
 those logs were excluded from the public EADream provenance copy.
@@ -61,6 +69,54 @@ montezuma_revenge, seed 0). Full report: [docs/reports/EADream.md](../docs/repor
   `checkpoints/metadata.json` (ties the excluded `final.pt` to its SHA256)
 - Excluded as bulky: `checkpoints/final.pt` (~0.5 GB per run), `replay/`
   payloads, exported videos, TensorBoard curves
+
+## mrq/mrq_atari16_1m_raw — Atari-16 house/raw-reward variant @ 1M, 2/16 COMPLETED
+
+Summary artifacts of the two completed runs (alien, frostbite, seed 0) under
+the house environment contract with **raw (unclipped) training rewards** at a
+1M-step diagnostic budget. Full report: [docs/reports/MRQ.md](../docs/reports/MRQ.md).
+
+- `<game>/` — `run_state.json`, `resolved_config.yaml` + `input_config.yaml`,
+  `provenance.json`, `summary/scores.{csv,json,md}`,
+  `checkpoints/final/manifest.json` (ties the excluded checkpoint weights to
+  their SHA256s)
+- Excluded as bulky: checkpoint weights and replay payloads (~67 MB per
+  checkpoint generation, 13 generations per run), `train_log.jsonl`,
+  TensorBoard curves
+- Protocol note: the alien run predates the addition of frostbite to the
+  campaign manifest, so its archived suite section lists one game
+  (fingerprint `b95eba7a…`); frostbite ran under the current two-game
+  manifest (fingerprint `3c09883b…`). Both identities are self-consistent
+  with their archived resolved configs; re-running the campaign under the
+  current manifest would conservatively re-run alien (fingerprint mismatch
+  refuses the skip).
+
+## mrq/mrq_dmc_humanoid_walk_500k — DMC humanoid-walk @ 500K, 1/1 COMPLETED
+
+- `humanoid_walk/` — same keep-list as above; `raw_frames` corrected to
+  500,000 env transitions per [docs/envs/dmc.md](../docs/envs/dmc.md)
+- Excluded as bulky: checkpoint weights, `train_log.jsonl`, TensorBoard
+  curves, and the recorded rollout video (re-recordable from the source
+  checkpoint in the research workspace via `record_episode.py`)
+
+## mrq/mrq_car_racing_600k and mrq/mrq_car_racing_pilot_100k — CarRacing, COMPLETED
+
+Summary artifacts of the pixel continuous-control campaign and its frozen
+budget-reduced diagnostic. Full report:
+[docs/reports/MRQ.md](../docs/reports/MRQ.md);
+environment contract: [docs/envs/car_racing.md](../docs/envs/car_racing.md).
+
+- `car_racing/` in each campaign — the standard MRQ keep-list (scores,
+  configs, run state, sanitized provenance, final-checkpoint manifest).
+  The source runs already recorded the correct ×2 raw-frame budget
+  (600K steps = 1.2M frames; 100K = 200K); the derivation script asserts
+  this instead of rewriting, so the only published-vs-source edits are the
+  `run_root` relativization (these runs' `pip_freeze` was already free of
+  local editable installs).
+- Excluded as bulky: checkpoint weights, `train_log.jsonl`, TensorBoard
+  curves.
+- Protocol note: the 600K headline (audit 886.7 ± 24.4) and the 100K pilot
+  (902.1 ± 27.2) are separate campaigns — never merged into one number.
 
 Protocol notes: PPO_SB3 primary scores are final-checkpoint audits
 (30 episodes, seeds 20000–20029, deterministic, unclipped raw return);

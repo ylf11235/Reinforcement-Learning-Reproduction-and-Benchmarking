@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "source": "original historical research run outputs (not distributed)",
+  "source_identity": "source_sha256 identifies pre-publication file bytes; published_sha256 identifies the bytes here",
+  "changes": [
+    "Rewrite output.run_root from an absolute workspace path to a repository-relative run root."
+  ],
+  "files": {
+    "car_racing/input_config.yaml": {
+      "source_sha256": "69836f48b5f1254b98bdf8c6a073e73bb2199b85b7f7927e7ae5f8214340b86c",
+      "published_sha256": "69836f48b5f1254b98bdf8c6a073e73bb2199b85b7f7927e7ae5f8214340b86c"
+    },
+    "car_racing/resolved_config.yaml": {
+      "source_sha256": "c27eaf493190f5522da018ad744c8e40533052710b08d897886904e5c6881dd6",
+      "published_sha256": "52ad8ef48e7c5fd101410f424e767700165e1f439d31bbc46390c2b4e3cb5e7a"
+    },
+    "car_racing/run_state.json": {
+      "source_sha256": "3d1437df97e6d108a234f7f69ee3a1b3c87a08b329029569dab9de8b02336189",
+      "published_sha256": "3d1437df97e6d108a234f7f69ee3a1b3c87a08b329029569dab9de8b02336189"
+    },
+    "car_racing/provenance.json": {
+      "source_sha256": "cc47dd7b41b946bb609aec2465b32f90a16faff0d1daf1a3d13b29903a6dc18e",
+      "published_sha256": "cc47dd7b41b946bb609aec2465b32f90a16faff0d1daf1a3d13b29903a6dc18e"
+    },
+    "car_racing/summary/scores.csv": {
+      "source_sha256": "17983d2706fce4ad96506978f527ea052c91c2928827eda8bf0555f9b8537617",
+      "published_sha256": "17983d2706fce4ad96506978f527ea052c91c2928827eda8bf0555f9b8537617"
+    },
+    "car_racing/summary/scores.json": {
+      "source_sha256": "4fbf657ba9a1701806e86c86628f1e5182f99456d9b1c00dac110bd1ecc05de4",
+      "published_sha256": "4fbf657ba9a1701806e86c86628f1e5182f99456d9b1c00dac110bd1ecc05de4"
+    },
+    "car_racing/summary/scores.md": {
+      "source_sha256": "9182957414df9fa1581475d3c337d3ed3f1313e393eef5657578ef5ab107ea80",
+      "published_sha256": "9182957414df9fa1581475d3c337d3ed3f1313e393eef5657578ef5ab107ea80"
+    },
+    "car_racing/checkpoints/final/manifest.json": {
+      "source_sha256": "b5adeb2d51a098cdb90f81fc82e7b50379886c6cd41bccba36809d5cdae07ddd",
+      "published_sha256": "b5adeb2d51a098cdb90f81fc82e7b50379886c6cd41bccba36809d5cdae07ddd"
+    }
+  }
+}

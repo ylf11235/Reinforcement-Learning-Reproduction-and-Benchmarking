@@ -1,0 +1,29 @@
+schema_version: 1
+experiment:
+  id: mrq_dmc_humanoid_walk_500k
+  algorithm: mrq
+  variant: dmc
+  campaign: dmc_humanoid_walk_500k
+suite:
+  id: dmc_humanoid_walk_500k
+  games:
+  - humanoid_walk
+  expected_game_count: 1
+budget:
+  unit: agent_steps
+  steps_requested: 500000
+  raw_frames: 500000
+runtime:
+  seed: 0
+environment:
+  frame_skip: 1
+  stack: 1
+  noop_max: 0
+  repeat_action_probability: 0.0
+  clip_reward: false
+  max_num_frames_per_episode: 1000
+  start_protocol: none
+evaluation:
+  periodic_freq: 50000
+output:
+  run_root: runs/dmc_humanoid_walk_500k

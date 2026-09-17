@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "source": "original historical research run outputs (not distributed)",
+  "source_identity": "source_sha256 identifies pre-publication file bytes; published_sha256 identifies the bytes here",
+  "changes": [
+    "Remove local editable-install entries from pip_freeze (machine-local checkout path).",
+    "Rewrite output.run_root from an absolute workspace path to a repository-relative run root."
+  ],
+  "files": {
+    "alien/input_config.yaml": {
+      "source_sha256": "dd37f5c32f60a4e0a9f741912d3e7b316620e53ffabb0547a4ee9b7341b99114",
+      "published_sha256": "dd37f5c32f60a4e0a9f741912d3e7b316620e53ffabb0547a4ee9b7341b99114"
+    },
+    "alien/resolved_config.yaml": {
+      "source_sha256": "870e296cf0d69df950c4e26636545c69a92c423aa41201a3da066eeb4298a08a",
+      "published_sha256": "26c58f3c28e117fd6459b01811b972b8d47baddef5aa13ab5e01e85033ea5bfd"
+    },
+    "alien/run_state.json": {
+      "source_sha256": "6ee05d18334b2928bb9d1ac3422eea35e5ad7107f47ab2127a7dc96e85d1c261",
+      "published_sha256": "6ee05d18334b2928bb9d1ac3422eea35e5ad7107f47ab2127a7dc96e85d1c261"
+    },
+    "alien/provenance.json": {
+      "source_sha256": "bfeca99481506e9f5c23857478f47542cb0fe0284b4a140b4735a7f3738466ce",
+      "published_sha256": "57f8ab0652dffba1e7eb7fabc23c8ff869b0e4b4006054e02d882ccca3985132"
+    },
+    "alien/summary/scores.csv": {
+      "source_sha256": "666aef9c567adc6a6ab587c2d76f9f5c35f53df172273fea2ca3ced229859bd8",
+      "published_sha256": "666aef9c567adc6a6ab587c2d76f9f5c35f53df172273fea2ca3ced229859bd8"
+    },
+    "alien/summary/scores.json": {
+      "source_sha256": "103d81cdcb42eef17722894633df4f206cb5f10725c2b92eea865c617b806c6b",
+      "published_sha256": "103d81cdcb42eef17722894633df4f206cb5f10725c2b92eea865c617b806c6b"
+    },
+    "alien/summary/scores.md": {
+      "source_sha256": "9e9c03fb74853b539b45dc7034e0b0c237e857ac13f016c794e5139fdb061574",
+      "published_sha256": "9e9c03fb74853b539b45dc7034e0b0c237e857ac13f016c794e5139fdb061574"
+    },
+    "alien/checkpoints/final/manifest.json": {
+      "source_sha256": "5efa4400b1ebf1dad46925693de9dfdff42f883e23fd9f4470f269291606e462",
+      "published_sha256": "5efa4400b1ebf1dad46925693de9dfdff42f883e23fd9f4470f269291606e462"
+    },
+    "frostbite/input_config.yaml": {
+      "source_sha256": "f5fc0aac607e6a95df4f8f6c9133da6d0535ff26e11f9a1fdd824ee091215eb0",
+      "published_sha256": "f5fc0aac607e6a95df4f8f6c9133da6d0535ff26e11f9a1fdd824ee091215eb0"
+    },
+    "frostbite/resolved_config.yaml": {
+      "source_sha256": "ad2d071724419931a497bafa04c980f9a166ffdfe9c781bb7da80debe53f999e",
+      "published_sha256": "1e35a2123e2c4b2ba831a6859343afb43397f9cbdd25653f9d23563070ba26cd"
+    },
+    "frostbite/run_state.json": {
+      "source_sha256": "43db09e18945c0f374b878733a898d3b60d5cb945edcf12cfd0383259cf78dfc",
+      "published_sha256": "43db09e18945c0f374b878733a898d3b60d5cb945edcf12cfd0383259cf78dfc"
+    },
+    "frostbite/provenance.json": {
+      "source_sha256": "447eb26474d467e98fd83e64d974f51bcc3ba9f28dbdc8ab8dbd3210e7d49602",
+      "published_sha256": "359df9787b3af536432411e1c00fb190076751c81663ccaecac6d3b5fd0ceb25"
+    },
+    "frostbite/summary/scores.csv": {
+      "source_sha256": "31583a3687a5a6e9f782c3bf55835a24dd2b1af99954b11f44b5ae7ca57a7ce2",
+      "published_sha256": "31583a3687a5a6e9f782c3bf55835a24dd2b1af99954b11f44b5ae7ca57a7ce2"
+    },
+    "frostbite/summary/scores.json": {
+      "source_sha256": "c6214b2c8fe1621a7fed8abdf1908aa365586b873d2442b7f6587dae22ab9d59",
+      "published_sha256": "c6214b2c8fe1621a7fed8abdf1908aa365586b873d2442b7f6587dae22ab9d59"
+    },
+    "frostbite/summary/scores.md": {
+      "source_sha256": "f07a97cb8b9cb23a72f02a0ef87f996a92e0da4bf86709e0d8d1bdf9b94214e1",
+      "published_sha256": "f07a97cb8b9cb23a72f02a0ef87f996a92e0da4bf86709e0d8d1bdf9b94214e1"
+    },
+    "frostbite/checkpoints/final/manifest.json": {
+      "source_sha256": "ceb0538afae8de20bce001ffe9e6706190d40065c25860325813216c97dfef98",
+      "published_sha256": "ceb0538afae8de20bce001ffe9e6706190d40065c25860325813216c97dfef98"
+    }
+  }
+}

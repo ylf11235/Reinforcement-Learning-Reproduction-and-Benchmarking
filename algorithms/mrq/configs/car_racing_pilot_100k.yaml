@@ -1,0 +1,32 @@
+schema_version: 1
+experiment:
+  id: mrq_car_racing_pilot_100k
+  algorithm: mrq
+  variant: car_racing
+  campaign: car_racing_pilot_100k
+suite:
+  id: car_racing_pilot_100k
+  games:
+  - car_racing
+  expected_game_count: 1
+budget:
+  unit: agent_steps
+  steps_requested: 100000
+  raw_frames: 200000
+runtime:
+  seed: 0
+environment:
+  frame_skip: 2
+  screen_size: 96
+  stack: 4
+  noop_max: 0
+  repeat_action_probability: 0.0
+  clip_reward: false
+  max_num_frames_per_episode: 1000
+  start_protocol: none
+algorithm:
+  buffer_size: 200000
+evaluation:
+  periodic_freq: 20000
+output:
+  run_root: runs/car_racing_pilot_100k

@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: dmc_humanoid_walk_500k
+game:
+  slug: humanoid_walk
+environment:
+  start_protocol: none

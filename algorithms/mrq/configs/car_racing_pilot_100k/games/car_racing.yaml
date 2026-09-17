@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: car_racing_pilot_100k
+game:
+  slug: car_racing
+environment:
+  start_protocol: none

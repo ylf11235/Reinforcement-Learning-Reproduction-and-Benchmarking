@@ -1,0 +1,18 @@
+{
+  "step": 1000000,
+  "config_fingerprint": "b95eba7abbab7b83abc2f546cfc59a1cabba3d25c30d9cc28799673e341e70c6",
+  "durable": false,
+  "created_at": "2026-09-15T11:06:02+00:00",
+  "files": {
+    "agent_var.npy": "724607246edc70964e5a7d6206ffb106de18712b6e34b4b179b37984004ffae8",
+    "encoder.pt": "338eb91373c82db76efcb95fef2ff85339471337a2a42ee166c09dfa1b144a4f",
+    "encoder_optimizer.pt": "478a5e2e96f7b2c3c545bd8a08957af515b7c3cdb72c950bd63d097f0506d47d",
+    "encoder_target.pt": "7526e66d33d6557e53962570ea776bbf84a8a6c38cbbcb73818009defc29de98",
+    "policy.pt": "faaf0ff98a79d8df5b2a46e86dca0c9e1ff76a7534dfbb7a7c880d3465cd25b3",
+    "policy_optimizer.pt": "b9400965c43dbd1f03cbb3082056e2629787fa329e9d2682de8f8ed9b1a5e7eb",
+    "policy_target.pt": "6b53000d8910efc44687b391304233bea971e035c37876e710e05823a1bfa5d8",
+    "value.pt": "9906311bce88a656f185c489193cfd1ea15c41c63d58f1d3aa7673c3235a6a31",
+    "value_optimizer.pt": "3cb666192742e5f446f8c06a903c5c92cdb0fda64574dbbb70d262b313aa117e",
+    "value_target.pt": "640994d84899214d73507fa6e7db19578bbfd82b4caff02223fd32d71ad3bba9"
+  }
+}

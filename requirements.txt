@@ -19,3 +19,13 @@ pyyaml==6.0.3
 tensorboard==2.21.0
 imageio==2.37.4
 opencv-python-headless==4.7.0.72
+
+# MRQ DMC experiments only (algorithms/mrq continuous-control campaigns;
+# the Atari campaigns do not need these):
+dm-control==1.0.45
+mujoco==3.12.0
+
+# MRQ CarRacing experiments only (algorithms/mrq pixel-continuous
+# campaigns; the other campaigns do not need these):
+Box2D==2.3.10
+pygame==2.6.1

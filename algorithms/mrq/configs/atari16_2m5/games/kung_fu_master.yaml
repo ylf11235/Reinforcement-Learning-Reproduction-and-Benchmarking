@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: atari16_2m5
+game:
+  slug: kung_fu_master
+environment:
+  start_protocol: none

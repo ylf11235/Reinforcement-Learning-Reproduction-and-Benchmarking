@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source": "original historical research run outputs (not distributed)",
+  "source_identity": "source_sha256 identifies pre-publication file bytes; published_sha256 identifies the bytes here",
+  "changes": [
+    "Remove local editable-install entries from pip_freeze (machine-local checkout path).",
+    "Rewrite output.run_root from an absolute workspace path to a repository-relative run root.",
+    "Correct raw_frames to the DMC budget definition (1 agent step = 1 env transition per agent step; the source summary recorded the Atari x4 value)."
+  ],
+  "files": {
+    "humanoid_walk/input_config.yaml": {
+      "source_sha256": "95232343220c5d5bad036ab2e700241bc2b68b597b754c8f4ed0b6a84459f285",
+      "published_sha256": "95232343220c5d5bad036ab2e700241bc2b68b597b754c8f4ed0b6a84459f285"
+    },
+    "humanoid_walk/resolved_config.yaml": {
+      "source_sha256": "66fcf0022c03d7d56e437a601a270f6bfefef348edd2a6facc696f9df1397c15",
+      "published_sha256": "0535439f94f1dc8bd41f3f19574593bbc931a7fa88a480ff2202bcdda091d55e"
+    },
+    "humanoid_walk/run_state.json": {
+      "source_sha256": "8ca113990c716bdbfb19a9d7740b65458a5dc2064d3643e2d7c1b6b4527bad73",
+      "published_sha256": "8ca113990c716bdbfb19a9d7740b65458a5dc2064d3643e2d7c1b6b4527bad73"
+    },
+    "humanoid_walk/provenance.json": {
+      "source_sha256": "d08a23afaecd67d4c31bcfa2c233043c68e15bee8b6542dcecccc38161e2df9b",
+      "published_sha256": "3486826f3e2d47b01afdf46576abffa0fd0b455dd9540dd0ec1018bf28c6a2a1"
+    },
+    "humanoid_walk/summary/scores.csv": {
+      "source_sha256": "567853c42500cba373fae24e86f03e9a6d7135c03514158e1d6da7fc2b6b3cb6",
+      "published_sha256": "567853c42500cba373fae24e86f03e9a6d7135c03514158e1d6da7fc2b6b3cb6"
+    },
+    "humanoid_walk/summary/scores.json": {
+      "source_sha256": "ea1c84eba68052a83f3b6d8ffe5dd5b878573ef379a80474f6c3998cc736d251",
+      "published_sha256": "6d3e771259b884ffd3d3001d876df05f310d788a6bf102373f93ab3167ebce57"
+    },
+    "humanoid_walk/summary/scores.md": {
+      "source_sha256": "baace910b6b2925272bf240d58166b5f9ae88fa9ae5a7f8f14077ccc95dc0ccc",
+      "published_sha256": "7a84350571e19ce290566a2194bd905a08fe2361296f21922d0e07ce4681264d"
+    },
+    "humanoid_walk/checkpoints/final/manifest.json": {
+      "source_sha256": "56c979ad4b90022589d6f2e79867030bc7972bb2d319d293c693023d55461531",
+      "published_sha256": "56c979ad4b90022589d6f2e79867030bc7972bb2d319d293c693023d55461531"
+    }
+  }
+}

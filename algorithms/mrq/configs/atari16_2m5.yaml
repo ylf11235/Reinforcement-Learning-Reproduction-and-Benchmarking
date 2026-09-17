@@ -1,0 +1,38 @@
+schema_version: 1
+experiment:
+  id: mrq_atari16_2m5
+  algorithm: mrq
+  variant: house
+  campaign: atari16_2m5
+suite:
+  id: atari16_2m5
+  games:
+  - alien
+  - asteroids
+  - bowling
+  - chopper_command
+  - enduro
+  - frostbite
+  - gopher
+  - kung_fu_master
+  - montezuma_revenge
+  - pitfall
+  - private_eye
+  - seaquest
+  - skiing
+  - solaris
+  - tennis
+  - venture
+  expected_game_count: 16
+budget:
+  unit: agent_steps
+  steps_requested: 2500000
+  raw_frames: 10000000
+runtime:
+  seed: 0
+environment:
+  repeat_action_probability: 0.0
+  noop_max: 30
+  clip_reward: true
+output:
+  run_root: runs/atari16_2m5_v1

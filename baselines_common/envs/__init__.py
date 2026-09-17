@@ -1,8 +1,9 @@
-"""Shared Atari environment construction and episode recording.
+"""Shared environment construction and episode recording.
 
-``video`` is intentionally not re-exported here: it pulls in ``imageio``,
-which not every backend needs. Import it explicitly as
-``from baselines_common.envs.video import ...``.
+``car_racing`` (Box2D), ``dmc`` (mujoco/dm_control), and ``video``
+(imageio) are intentionally not re-exported here: each pulls in a
+backend-specific dependency that not every consumer needs. Import them
+explicitly, e.g. ``from baselines_common.envs.dmc import DMCGymAdapter``.
 """
 
 from .atari import make_atari_env, make_vector_env

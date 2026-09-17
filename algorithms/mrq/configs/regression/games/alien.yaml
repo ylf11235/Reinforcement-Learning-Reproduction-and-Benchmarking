@@ -1,0 +1,7 @@
+schema_version: 1
+experiment:
+  campaign: regression
+game:
+  slug: alien
+environment:
+  start_protocol: none

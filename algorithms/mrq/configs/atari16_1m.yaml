@@ -1,0 +1,24 @@
+schema_version: 1
+experiment:
+  id: mrq_atari16_1m_raw
+  algorithm: mrq
+  variant: house
+  campaign: atari16_1m
+suite:
+  id: atari16_1m
+  games:
+  - alien
+  - frostbite
+  expected_game_count: 2
+budget:
+  unit: agent_steps
+  steps_requested: 1000000
+  raw_frames: 4000000
+runtime:
+  seed: 0
+environment:
+  repeat_action_probability: 0.0
+  noop_max: 30
+  clip_reward: false
+output:
+  run_root: runs/atari16_1m_raw
